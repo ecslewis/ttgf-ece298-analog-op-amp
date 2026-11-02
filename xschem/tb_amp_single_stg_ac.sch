@@ -5,20 +5,20 @@ V {}
 S {}
 F {}
 E {}
+N -120 100 220 100 {lab=vout}
+N 220 100 230 100 {lab=vout}
+N 240 100 240 120 {lab=vout}
+N 230 100 240 100 {lab=vout}
 N -550 80 -420 80 {lab=vin_p}
 N -610 80 -550 80 {lab=vin_p}
 N -610 160 -610 180 {lab=vin_p}
 N -120 80 -100 80 {lab=#net1}
 N -100 -70 -100 70 {lab=#net1}
 N -160 -170 -100 -170 {lab=#net1}
-N -120 100 220 100 {lab=vout}
 N -120 120 -110 120 {lab=0}
 N -110 120 -110 140 {lab=0}
 N -160 -170 -160 -150 {lab=#net1}
 N -100 -170 -100 -70 {lab=#net1}
-N 220 100 230 100 {lab=vout}
-N 240 100 240 120 {lab=vout}
-N 230 100 240 100 {lab=vout}
 N -610 240 -610 250 {lab=0}
 N -100 70 -100 80 {lab=#net1}
 N -280 170 -40 170 {lab=vout}
@@ -32,12 +32,6 @@ N -430 170 -420 170 {lab=vin_n}
 N -610 80 -610 100 {lab=vin_p}
 N -500 100 -450 100 {lab=vin_n}
 N -500 100 -500 120 {lab=vin_n}
-C {vsource.sym} -160 -120 0 0 {name=V3 value=3.3 savecurrent=false}
-C {gnd.sym} -160 -90 0 0 {name=l1 lab=0}
-C {gnd.sym} -110 140 0 0 {name=l3 lab=0}
-C {lab_pin.sym} -610 80 0 0 {name=p1 sig_type=std_logic lab=vin_p}
-C {lab_pin.sym} -450 100 3 0 {name=p2 sig_type=std_logic lab=vin_n}
-C {lab_pin.sym} -40 100 3 1 {name=p4 sig_type=std_logic lab=vout}
 C {capa.sym} 240 150 0 0 {name=C2
 m=1
 value=1p
@@ -188,6 +182,12 @@ setplot tran1
 plot v(vout) v(vin_p) title 'Closed-Loop Transient Step Response'
 .endc
 "}
+C {vsource.sym} -160 -120 0 0 {name=V3 value=3.3 savecurrent=false}
+C {gnd.sym} -160 -90 0 0 {name=l1 lab=0}
+C {gnd.sym} -110 140 0 0 {name=l3 lab=0}
+C {lab_pin.sym} -610 80 0 0 {name=p1 sig_type=std_logic lab=vin_p}
+C {lab_pin.sym} -450 100 3 0 {name=p2 sig_type=std_logic lab=vin_n}
+C {lab_pin.sym} -40 100 3 1 {name=p4 sig_type=std_logic lab=vout}
 C {vsource.sym} -610 210 0 0 {name=V1 value="dc 1.2 ac 1 PULSE(1.20 1.25 10n 1n 1n 90n 200n)" savecurrent=false}
 C {gnd.sym} -610 250 0 0 {name=l2 lab=0}
 C {ind.sym} -310 170 1 0 {name=L4
@@ -201,4 +201,4 @@ value=1e12
 footprint=1206
 device="ceramic capacitor"}
 C {gnd.sym} -500 180 0 0 {name=l6 lab=0}
-C {xschem/amp_single_stage.sym} -270 100 0 0 {name=x1}
+C {ttgf-ece298-analog-op-amp/xschem/amp_single_stage.sym} -270 100 0 0 {name=x1}

@@ -49,11 +49,11 @@ N 240 0 240 20 {lab=#net1}
 N 200 20 200 40 {lab=VSS}
 N 280 30 290 30 {lab=#net1}
 N 280 30 280 50 {lab=#net1}
-C {xschem/amp_stg_1.sym} 440 -10 0 0 {name=x2}
-C {xschem/amp_stg_2.sym} 830 -10 0 0 {name=x3}
-C {xschem/amp_bias.sym} 50 -20 0 0 {name=x1}
 C {opin.sym} 1010 -10 0 0 {name=p1 lab=vout}
 C {ipin.sym} 270 140 0 1 {name=p3 lab=vin_n}
 C {ipin.sym} 260 140 0 0 {name=p4 lab=vin_p}
 C {iopin.sym} 600 90 0 0 {name=p2 lab=VSS}
 C {iopin.sym} 600 -200 0 0 {name=p6 lab=VDD}
+C {ttgf-ece298-analog-op-amp/xschem/amp_bias.sym} 50 -20 0 0 {name=x1}
+C {ttgf-ece298-analog-op-amp/xschem/amp_stg_1.sym} 440 -10 0 0 {name=x2}
+C {ttgf-ece298-analog-op-amp/xschem/amp_stg_2.sym} 830 -10 0 0 {name=x3}

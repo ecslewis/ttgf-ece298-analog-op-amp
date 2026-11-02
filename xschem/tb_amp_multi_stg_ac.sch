@@ -32,7 +32,6 @@ N 630 -120 640 -120 {lab=vin_n}
 N 450 -210 450 -190 {lab=vin_p}
 N 560 -190 610 -190 {lab=vin_n}
 N 560 -190 560 -170 {lab=vin_n}
-C {xschem/amp_multi_stg.sym} 790 -190 0 0 {name=x1 type=subcircuit}
 C {vsource.sym} 900 -410 0 0 {name=V3 value=3.3 savecurrent=false}
 C {gnd.sym} 900 -380 0 0 {name=l1 lab=0}
 C {gnd.sym} 950 -150 0 0 {name=l3 lab=0}
@@ -202,3 +201,4 @@ value=1e12
 footprint=1206
 device="ceramic capacitor"}
 C {gnd.sym} 560 -110 0 0 {name=l6 lab=0}
+C {ttgf-ece298-analog-op-amp/xschem/amp_multi_stg.sym} 790 -190 0 0 {name=x1}

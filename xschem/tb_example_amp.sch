@@ -203,4 +203,4 @@ value=1e12
 footprint=1206
 device="ceramic capacitor"}
 C {gnd.sym} 150 -80 0 0 {name=l6 lab=0}
-C {xschem/gfmcu_example_amp.sym} 380 -160 0 0 {name=x1}
+C {ttgf-ece298-analog-op-amp/xschem/gfmcu_example_amp.sym} 380 -160 0 0 {name=x1}
