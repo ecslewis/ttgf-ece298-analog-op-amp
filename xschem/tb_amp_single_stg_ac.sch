@@ -34,7 +34,7 @@ N -500 100 -450 100 {lab=vin_n}
 N -500 100 -500 120 {lab=vin_n}
 C {capa.sym} 240 150 0 0 {name=C2
 m=1
-value=1p
+value=5p
 footprint=1206
 device="ceramic capacitor"}
 C {gnd.sym} 240 180 0 0 {name=l5 lab=0}
@@ -56,6 +56,8 @@ C_mim c0 c1 2.5p
 .save all
 
 .control
+destroy all
+
 * ======================================================================
 * 1. DC OPERATING POINT & TRANSISTOR SATURATION CHECK
 * ======================================================================
@@ -64,58 +66,190 @@ op
 let v_inp_dc   = v(vin_p)
 let v_inn_dc   = v(vin_n)
 let v_out_dc   = v(vout)
+let v_diode_dc = v(x1.x2.net3)
 let i_vdd_ua   = abs(v3#branch) * 1e6
 let p_total_mw = i_vdd_ua * 3.3 / 1e3
 
 echo ======================================================================
-echo                   1. DC OPERATING VOLTAGES & POWER
+echo                    1. DC OPERATING VOLTAGES & POWER
 echo ======================================================================
-print v_inp_dc v_inn_dc v_out_dc
+print v_inp_dc v_inn_dc v_out_dc v_diode_dc
 print i_vdd_ua p_total_mw
 
+* ======================================================================
+* 2. AUTOMATED TRANSISTOR SATURATION CHECKER
+* ======================================================================
+* Calculates margin = abs(VDS) - abs(VDSAT). 
+* Margin negative -> TRIODE / LINEAR (Failing)
+* 0 to 50mV -> EDGE OF SATURATION (Warning)
+
+let thr = 0.05
+
+* --- Calculate Margins for Stage 1 (x1.x2) ---
+let m_s1_xm1  = abs(@m.x1.x2.xm1.m0[vds])  - abs(@m.x1.x2.xm1.m0[vdsat])
+let m_s1_xm2  = abs(@m.x1.x2.xm2.m0[vds])  - abs(@m.x1.x2.xm2.m0[vdsat])
+let m_s1_xm3  = abs(@m.x1.x2.xm3.m0[vds])  - abs(@m.x1.x2.xm3.m0[vdsat])
+let m_s1_xm4  = abs(@m.x1.x2.xm4.m0[vds])  - abs(@m.x1.x2.xm4.m0[vdsat])
+let m_s1_xm5  = abs(@m.x1.x2.xm5.m0[vds])  - abs(@m.x1.x2.xm5.m0[vdsat])
+let m_s1_xm7  = abs(@m.x1.x2.xm7.m0[vds])  - abs(@m.x1.x2.xm7.m0[vdsat])
+let m_s1_xm8  = abs(@m.x1.x2.xm8.m0[vds])  - abs(@m.x1.x2.xm8.m0[vdsat])
+let m_s1_xm9  = abs(@m.x1.x2.xm9.m0[vds])  - abs(@m.x1.x2.xm9.m0[vdsat])
+let m_s1_xm10 = abs(@m.x1.x2.xm10.m0[vds]) - abs(@m.x1.x2.xm10.m0[vdsat])
+
+* --- Calculate Margins for Bias Generator (x1.x1) ---
+let m_bg_xm1  = abs(@m.x1.x1.xm1.m0[vds])  - abs(@m.x1.x1.xm1.m0[vdsat])
+let m_bg_xm3  = abs(@m.x1.x1.xm3.m0[vds])  - abs(@m.x1.x1.xm3.m0[vdsat])
+let m_bg_xm4  = abs(@m.x1.x1.xm4.m0[vds])  - abs(@m.x1.x1.xm4.m0[vdsat])
+let m_bg_xm5  = abs(@m.x1.x1.xm5.m0[vds])  - abs(@m.x1.x1.xm5.m0[vdsat])
+let m_bg_xm6  = abs(@m.x1.x1.xm6.m0[vds])  - abs(@m.x1.x1.xm6.m0[vdsat])
+let m_bg_xm7  = abs(@m.x1.x1.xm7.m0[vds])  - abs(@m.x1.x1.xm7.m0[vdsat])
+let m_bg_xm8  = abs(@m.x1.x1.xm8.m0[vds])  - abs(@m.x1.x1.xm8.m0[vdsat])
+let m_bg_xm9  = abs(@m.x1.x1.xm9.m0[vds])  - abs(@m.x1.x1.xm9.m0[vdsat])
+
 echo ======================================================================
-echo                   2. TRANSISTOR SATURATION CHECK
+echo                  *** TRIODE WARNINGS - MARGIN NEGATIVE ***
 echo ======================================================================
-echo   If Margin is POSITIVE (+) -> SATURATION (GOOD)
-echo   If Margin is NEGATIVE (-) -> TRIODE/LINEAR (BAD - KILLS GAIN)
+if m_s1_xm1 < 0
+  echo Stage 1 XM1 NMOS Input Right     : $&m_s1_xm1 V
+end
+if m_s1_xm2 < 0
+  echo Stage 1 XM2 PMOS Cascode Left    : $&m_s1_xm2 V
+end
+if m_s1_xm3 < 0
+  echo Stage 1 XM3 NMOS Tail            : $&m_s1_xm3 V
+end
+if m_s1_xm4 < 0
+  echo Stage 1 XM4 NMOS Cascode Right   : $&m_s1_xm4 V
+end
+if m_s1_xm5 < 0
+  echo Stage 1 XM5 NMOS Cascode Left    : $&m_s1_xm5 V
+end
+if m_s1_xm7 < 0
+  echo Stage 1 XM7 NMOS Input Left      : $&m_s1_xm7 V
+end
+if m_s1_xm8 < 0
+  echo Stage 1 XM8 PMOS Cascode Right   : $&m_s1_xm8 V
+end
+if m_s1_xm9 < 0
+  echo Stage 1 XM9 PMOS Mirror Left     : $&m_s1_xm9 V
+end
+if m_s1_xm10 < 0
+  echo Stage 1 XM10 PMOS Mirror Right   : $&m_s1_xm10 V
+end
+if m_bg_xm1 < 0
+  echo Bias XM1 NMOS Ref Diode          : $&m_bg_xm1 V
+end
+if m_bg_xm3 < 0
+  echo Bias XM3 NMOS Mirror             : $&m_bg_xm3 V
+end
+if m_bg_xm4 < 0
+  echo Bias XM4 PMOS Mirror             : $&m_bg_xm4 V
+end
+if m_bg_xm5 < 0
+  echo Bias XM5 PMOS Mirror             : $&m_bg_xm5 V
+end
+if m_bg_xm6 < 0
+  echo Bias XM6 NMOS Mirror             : $&m_bg_xm6 V
+end
+if m_bg_xm7 < 0
+  echo Bias XM7 NMOS Mirror             : $&m_bg_xm7 V
+end
+if m_bg_xm8 < 0
+  echo Bias XM8 NMOS Cascode Bias Gen   : $&m_bg_xm8 V
+end
+if m_bg_xm9 < 0
+  echo Bias XM9 PMOS Cascode Bias Gen   : $&m_bg_xm9 V
+end
+
+echo .
 echo ======================================================================
-
-* NMOS Tail (XM3 in stg1)
-let vds_tail   = abs(@m.x1.x2.xm3.m0[vds])
-let vdsat_tail = abs(@m.x1.x2.xm3.m0[vdsat])
-let marg_tail  = vds_tail - vdsat_tail
-
-* NMOS Input (XM1 in stg1)
-let vds_in     = abs(@m.x1.x2.xm1.m0[vds])
-let vdsat_in   = abs(@m.x1.x2.xm1.m0[vdsat])
-let marg_in    = vds_in - vdsat_in
-
-* NMOS Cascode (XM4 in stg1)
-let vds_casc   = abs(@m.x1.x2.xm4.m0[vds])
-let vdsat_casc = abs(@m.x1.x2.xm4.m0[vdsat])
-let marg_casc  = vds_casc - vdsat_casc
-
-* PMOS Cascode (XM8 in stg1)
-let vds_pcasc  = abs(@m.x1.x2.xm8.m0[vds])
-let vdsat_pcasc= abs(@m.x1.x2.xm8.m0[vdsat])
-let marg_pcasc = vds_pcasc - vdsat_pcasc
-
-* PMOS Mirror (XM10 in stg1)
-let vds_pmir   = abs(@m.x1.x2.xm10.m0[vds])
-let vdsat_pmir = abs(@m.x1.x2.xm10.m0[vdsat])
-let marg_pmir  = vds_pmir - vdsat_pmir
-
-echo --- NMOS Tail (XM3) ---
-print vds_tail vdsat_tail marg_tail
-echo --- NMOS Input (XM1) ---
-print vds_in vdsat_in marg_in
-echo --- NMOS Cascode (XM4) ---
-print vds_casc vdsat_casc marg_casc
-echo --- PMOS Cascode (XM8) ---
-print vds_pcasc vdsat_pcasc marg_pcasc
-echo --- PMOS Mirror (XM10) ---
-print vds_pmir vdsat_pmir marg_pmir
+echo             *** EDGE OF SATURATION - MARGIN 0 TO 50mV ***
 echo ======================================================================
+if m_s1_xm1 > 0
+  if m_s1_xm1 < thr
+    echo Stage 1 XM1 NMOS Input Right     : $&m_s1_xm1 V
+  end
+end
+if m_s1_xm2 > 0
+  if m_s1_xm2 < thr
+    echo Stage 1 XM2 PMOS Cascode Left    : $&m_s1_xm2 V
+  end
+end
+if m_s1_xm3 > 0
+  if m_s1_xm3 < thr
+    echo Stage 1 XM3 NMOS Tail            : $&m_s1_xm3 V
+  end
+end
+if m_s1_xm4 > 0
+  if m_s1_xm4 < thr
+    echo Stage 1 XM4 NMOS Cascode Right   : $&m_s1_xm4 V
+  end
+end
+if m_s1_xm5 > 0
+  if m_s1_xm5 < thr
+    echo Stage 1 XM5 NMOS Cascode Left    : $&m_s1_xm5 V
+  end
+end
+if m_s1_xm7 > 0
+  if m_s1_xm7 < thr
+    echo Stage 1 XM7 NMOS Input Left      : $&m_s1_xm7 V
+  end
+end
+if m_s1_xm8 > 0
+  if m_s1_xm8 < thr
+    echo Stage 1 XM8 PMOS Cascode Right   : $&m_s1_xm8 V
+  end
+end
+if m_s1_xm9 > 0
+  if m_s1_xm9 < thr
+    echo Stage 1 XM9 PMOS Mirror Left     : $&m_s1_xm9 V
+  end
+end
+if m_s1_xm10 > 0
+  if m_s1_xm10 < thr
+    echo Stage 1 XM10 PMOS Mirror Right   : $&m_s1_xm10 V
+  end
+end
+if m_bg_xm1 > 0
+  if m_bg_xm1 < thr
+    echo Bias XM1 NMOS Ref Diode          : $&m_bg_xm1 V
+  end
+end
+if m_bg_xm3 > 0
+  if m_bg_xm3 < thr
+    echo Bias XM3 NMOS Mirror             : $&m_bg_xm3 V
+  end
+end
+if m_bg_xm4 > 0
+  if m_bg_xm4 < thr
+    echo Bias XM4 PMOS Mirror             : $&m_bg_xm4 V
+  end
+end
+if m_bg_xm5 > 0
+  if m_bg_xm5 < thr
+    echo Bias XM5 PMOS Mirror             : $&m_bg_xm5 V
+  end
+end
+if m_bg_xm6 > 0
+  if m_bg_xm6 < thr
+    echo Bias XM6 NMOS Mirror             : $&m_bg_xm6 V
+  end
+end
+if m_bg_xm7 > 0
+  if m_bg_xm7 < thr
+    echo Bias XM7 NMOS Mirror             : $&m_bg_xm7 V
+  end
+end
+if m_bg_xm8 > 0
+  if m_bg_xm8 < thr
+    echo Bias XM8 NMOS Cascode Bias Gen   : $&m_bg_xm8 V
+  end
+end
+if m_bg_xm9 > 0
+  if m_bg_xm9 < thr
+    echo Bias XM9 PMOS Cascode Bias Gen   : $&m_bg_xm9 V
+  end
+end
 
 * ======================================================================
 * 3. AC FREQUENCY RESPONSE (OPEN-LOOP: L4=1e12, C1=1e12)
@@ -136,13 +270,12 @@ meas ac ph_ugbw find phase_deg when gain_db = 0
 let pm = 180 + ph_ugbw
 
 echo ======================================================================
-echo                   3. AC FREQUENCY RESPONSE RESULTS
+echo                    3. AC FREQUENCY RESPONSE RESULTS
 echo ======================================================================
 print dc_gain
 print f_3db
 print f_ugbw
 print pm
-echo ======================================================================
 
 * ======================================================================
 * 4. TRANSIENT & SLEW RATE (CLOSED-LOOP UNITY-GAIN: L4=1p, C1=1f)
@@ -164,15 +297,52 @@ let sr_rise_v_us = (0.03 / t_rise) / 1e6
 let sr_fall_v_us = (0.03 / t_fall) / 1e6
 
 echo ======================================================================
-echo                   4. TRANSIENT & SLEW RATE RESULTS
+echo                    4. TRANSIENT & SLEW RATE RESULTS
 echo ======================================================================
 print v_init v_max v_min
 print t_rise sr_rise_v_us
 print t_fall sr_fall_v_us
+* ======================================================================
+* 5. DC SWEEP (OUTPUT SWING & ICMR)
+* ======================================================================
+alter l4 = 1e-12
+alter c1 = 1e-18
+dc v1 0 3.3 1m
+
+* Calculate Output Swing
+let vout_deriv = deriv(v(vout))
+meas dc swing_min find v(vout) when vout_deriv=0.9 cross=1
+meas dc swing_max find v(vout) when vout_deriv=0.9 cross=last
+let total_swing = swing_max - swing_min
+
+* Calculate ICMR Margins using node voltages to bypass ngspice vector bugs
+* VTH is approx 0.45V for the GF180 3.3V NMOS devices
+let vds_tail_sweep = v(x1.x2.net6)
+let vdsat_tail_sweep = v(x1.net1) - 0.45
+let marg_tail_sweep = vds_tail_sweep - vdsat_tail_sweep
+
+let vds_in_sweep = v(x1.x2.net4) - v(x1.x2.net6)
+let vgs_in_sweep = v(vin_n) - v(x1.x2.net6)
+let vdsat_in_sweep = vgs_in_sweep - 0.45
+let marg_in_sweep = vds_in_sweep - vdsat_in_sweep
+
 echo ======================================================================
+echo                    5. OUTPUT SWING RESULTS
+echo ======================================================================
+print swing_min swing_max total_swing
 
 * ======================================================================
-* 5. PLOTS
+* 6. NOISE ANALYSIS
+* ======================================================================
+noise v(vout) v1 dec 35 1 5G
+
+echo ======================================================================
+echo                    6. NOISE ANALYSIS RESULTS
+echo ======================================================================
+print inoise_total onoise_total
+
+* ======================================================================
+* 7. PLOTS
 * ======================================================================
 setplot ac1
 plot db(v(vout)) title 'Open-Loop Gain (dB)'
@@ -180,6 +350,14 @@ plot (cph(v(vout))*180/3.14159265) title 'Open-Loop Phase (Deg)'
 
 setplot tran1
 plot v(vout) v(vin_p) title 'Closed-Loop Transient Step Response'
+
+setplot dc1
+plot v(vout) v(vin_p) title 'DC Transfer Characteristic (Output Swing)'
+*plot marg_tail_sweep marg_in_sweep title 'ICMR: Saturation Margins (>0 is good)'
+
+*setplot noise1
+*plot inoise_spectrum title 'Input-Referred Noise Spectrum (V/rtHz)'
+
 .endc
 "}
 C {vsource.sym} -160 -120 0 0 {name=V3 value=3.3 savecurrent=false}

@@ -87,14 +87,9 @@ N 810 -320 880 -320 {lab=VDD}
 C {title.sym} 190 -50 0 0 {name=l1 author="Qasim Ebsim"}
 C {iopin.sym} 650 -640 0 0 {name=p1 lab=VDD}
 C {iopin.sym} 820 -110 0 0 {name=p2 lab=VSS}
-C {res.sym} 490 -550 0 0 {name=R1
-value=48.5k
-footprint=1206
-device=resistor
-m=1}
 C {gf180mcu_fd_pr/nfet_03v3.sym} 510 -220 0 1 {name=M1
-L=0.5u
-W=8u
+L=1.4u
+W=32u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -121,7 +116,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 610 -470 0 0 {name=M4
-L=0.5u
+L=1.4u
 W=8u
 nf=1
 m=1
@@ -135,7 +130,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 960 -470 0 0 {name=M5
-L=0.5u
+L=1.4u
 W=8u
 nf=1
 m=1
@@ -163,8 +158,8 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 960 -220 0 0 {name=M7
-L=0.5u
-W=14u
+L=1.4u
+W=6u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -177,8 +172,8 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 960 -310 0 0 {name=M8
-L=0.5u
-W=12u
+L=1.4u
+W=6u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -197,7 +192,7 @@ C {opin.sym} 1120 -380 0 0 {name=p4 lab=vbias_2
 C {opin.sym} 1120 -360 0 0 {name=p6 lab=vbias_mirror}
 C {symbols/pfet_03v3.sym} 790 -320 0 0 {name=M9
 L=1.4u
-W=2u
+W=1u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -209,3 +204,4 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
+C {isource.sym} 490 -550 0 0 {name=I0 value=30u}

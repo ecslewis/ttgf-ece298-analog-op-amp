@@ -62,9 +62,9 @@ N 520 -450 580 -450 {lab=#net3}
 N 580 -550 580 -450 {lab=#net3}
 C {title.sym} 160 -30 0 0 {name=l1 author="Qasim Ebsim"}
 C {gf180mcu_fd_pr/pfet_03v3.sym} 540 -500 0 1 {name=M2
-L=1.4u
-W=12u
-nf=1
+L=2.0u
+W=28u
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -83,9 +83,9 @@ C {opin.sym} 870 -430 0 0 {name=p6 lab=vout
 
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 710 -280 0 1 {name=M1
-L=0.5u
-W=8u
-nf=1
+L=1.4u
+W=32u
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -98,8 +98,8 @@ spiceprefix=X
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 580 -180 0 0 {name=M3
 L=1.4u
-W=12u
-nf=1
+W=32u
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -111,9 +111,9 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 670 -380 0 0 {name=M4
-L=1.4u
-W=8u
-nf=1
+L=2.0u
+W=16u
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -125,9 +125,9 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 540 -380 0 1 {name=M5
-L=1.4u
-W=8u
-nf=1
+L=2.0u
+W=16u
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -139,9 +139,9 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 500 -280 0 0 {name=M7
-L=0.5u
-W=8u
-nf=1
+L=1.4u
+W=32u
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -153,9 +153,9 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {gf180mcu_fd_pr/pfet_03v3.sym} 670 -500 0 0 {name=M8
-L=1.4u
-W=12u
-nf=1
+L=2.0u
+W=28u
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -167,9 +167,9 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {gf180mcu_fd_pr/pfet_03v3.sym} 540 -600 0 1 {name=M9
-L=1.4u
-W=4u
-nf=1
+L=2.0u
+W=28u
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -181,9 +181,9 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {gf180mcu_fd_pr/pfet_03v3.sym} 670 -600 0 0 {name=M10
-L=1.4u
-W=4u
-nf=1
+L=2.0u
+W=28u
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"

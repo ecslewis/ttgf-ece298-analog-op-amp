@@ -37,7 +37,8 @@ N -210 30 -210 50 {lab=VSS}
 N -130 40 -120 40 {lab=#net1}
 N -170 40 -130 40 {lab=#net1}
 N -170 30 -170 40 {lab=#net1}
-C {opin.sym} 270 -20 0 0 {name=p1 lab=vout}
+N 270 -20 330 -20 {lab=vout}
+C {opin.sym} 330 -20 0 0 {name=p1 lab=vout}
 C {ipin.sym} -150 150 0 0 {name=p3 lab=vin_n}
 C {ipin.sym} -140 150 0 1 {name=p4 lab=vin_p}
 C {iopin.sym} 190 100 0 0 {name=p2 lab=VSS}
