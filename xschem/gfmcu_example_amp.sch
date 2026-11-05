@@ -422,4 +422,4 @@ spiceprefix=X
 }
 C {iopin.sym} 70 -110 0 1 {name=p16 lab=VSS}
 C {iopin.sym} 60 -750 0 1 {name=p27 lab=VDD}
-C {isource.sym} 160 -660 0 0 {name=I0 value=2.5e-05}
+C {ipin.sym} 160 -630 0 0 {name=p1 lab=ibias}

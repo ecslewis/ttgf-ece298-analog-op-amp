@@ -84,9 +84,9 @@ C {opin.sym} 870 -430 0 0 {name=p6 lab=vout
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 710 -280 0 1 {name=M1
 L=1.4u
-W=32u
-nf=4
-m=1
+W=16u
+nf=2
+m=2
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -140,9 +140,9 @@ spiceprefix=X
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 500 -280 0 0 {name=M7
 L=1.4u
-W=32u
-nf=4
-m=1
+W=16u
+nf=2
+m=2
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
