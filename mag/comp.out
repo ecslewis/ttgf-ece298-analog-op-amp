@@ -1,19 +1,4 @@
 
-Circuit 1 cell pfet_03v3 and Circuit 2 cell pfet_03v3 are black boxes.
-Warning: Equate pins:  cell pfet_03v3 is a placeholder, treated as a black box.
-Warning: Equate pins:  cell pfet_03v3 is a placeholder, treated as a black box.
-
-Subcircuit pins:
-Circuit 1: pfet_03v3                       |Circuit 2: pfet_03v3                       
--------------------------------------------|-------------------------------------------
-1                                          |1                                          
-2                                          |2                                          
-3                                          |3                                          
-4                                          |4                                          
----------------------------------------------------------------------------------------
-Cell pin lists are equivalent.
-Device classes pfet_03v3 and pfet_03v3 are equivalent.
-
 Circuit 1 cell nfet_03v3 and Circuit 2 cell nfet_03v3 are black boxes.
 Warning: Equate pins:  cell nfet_03v3 is a placeholder, treated as a black box.
 Warning: Equate pins:  cell nfet_03v3 is a placeholder, treated as a black box.
@@ -28,36 +13,49 @@ Circuit 1: nfet_03v3                       |Circuit 2: nfet_03v3
 ---------------------------------------------------------------------------------------
 Cell pin lists are equivalent.
 Device classes nfet_03v3 and nfet_03v3 are equivalent.
-Flattening unmatched subcell pfet_03v3_W5SFVU in circuit amp_stg_1 (0)(4 instances)
-Flattening unmatched subcell nfet_03v3_D3XTXL in circuit amp_stg_1 (0)(2 instances)
-Flattening unmatched subcell nfet_03v3_8EAYTP in circuit amp_stg_1 (0)(1 instance)
-Flattening unmatched subcell nfet_03v3_SSV5GB in circuit amp_stg_1 (0)(4 instances)
 
-Class amp_stg_1 (0):  Merged 27 parallel devices.
-Subcircuit summary:
-Circuit 1: amp_stg_1                       |Circuit 2: amp_stg_1                       
+Circuit 1 cell pfet_03v3 and Circuit 2 cell pfet_03v3 are black boxes.
+Warning: Equate pins:  cell pfet_03v3 is a placeholder, treated as a black box.
+Warning: Equate pins:  cell pfet_03v3 is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: pfet_03v3                       |Circuit 2: pfet_03v3                       
 -------------------------------------------|-------------------------------------------
-pfet_03v3 (16->4)                          |pfet_03v3 (4)                              
-nfet_03v3 (20->5)                          |nfet_03v3 (7->5)                           
-Number of devices: 9                       |Number of devices: 9                       
-Number of nets: 14                         |Number of nets: 14                         
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes pfet_03v3 and pfet_03v3 are equivalent.
+Flattening unmatched subcell nfet_03v3_8EAYTP in circuit amp_bias (0)(1 instance)
+Flattening unmatched subcell nfet_03v3_9XYV5A in circuit amp_bias (0)(2 instances)
+Flattening unmatched subcell pfet_03v3_8Z4VZP in circuit amp_bias (0)(2 instances)
+Flattening unmatched subcell nfet_03v3_8F4T6E in circuit amp_bias (0)(2 instances)
+Flattening unmatched subcell pfet_03v3_TY6H95 in circuit amp_bias (0)(1 instance)
+
+Class amp_bias (0):  Merged 3 parallel devices.
+Subcircuit summary:
+Circuit 1: amp_bias                        |Circuit 2: amp_bias                        
+-------------------------------------------|-------------------------------------------
+nfet_03v3 (8->5)                           |nfet_03v3 (5)                              
+pfet_03v3 (3)                              |pfet_03v3 (3)                              
+Number of devices: 8                       |Number of devices: 8                       
+Number of nets: 7                          |Number of nets: 7                          
 ---------------------------------------------------------------------------------------
 Netlists match uniquely.
 
 Subcircuit pins:
-Circuit 1: amp_stg_1                       |Circuit 2: amp_stg_1                       
+Circuit 1: amp_bias                        |Circuit 2: amp_bias                        
 -------------------------------------------|-------------------------------------------
-vbias_tail                                 |vbias_tail                                 
-vn                                         |vn                                         
-vp                                         |vp                                         
-vbias_1                                    |vbias_1                                    
-vout                                       |vout                                       
 vbias_2                                    |vbias_2                                    
+vbias_1                                    |vbias_1                                    
 VDD                                        |VDD                                        
 VSS                                        |VSS                                        
+vbias_in                                   |vbias_in                                   
 ---------------------------------------------------------------------------------------
 Cell pin lists are equivalent.
-Device classes amp_stg_1 and amp_stg_1 are equivalent.
+Device classes amp_bias and amp_bias are equivalent.
 
 Final result: Circuits match uniquely.
 .

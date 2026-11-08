@@ -6,27 +6,25 @@ S {}
 F {}
 E {}
 N 650 -640 650 -610 {lab=VDD}
-N 490 -600 490 -580 {lab=VDD}
-N 490 -600 650 -600 {lab=VDD}
 N 650 -610 650 -600 {lab=VDD}
-N 490 -520 490 -250 {lab=vbias_mirror}
+N 490 -520 490 -250 {lab=vbias_in}
 N 490 -190 490 -160 {lab=VSS}
 N 490 -160 680 -160 {lab=VSS}
 N 820 -130 820 -110 {lab=VSS}
-N 530 -280 530 -220 {lab=vbias_mirror}
-N 490 -280 530 -280 {lab=vbias_mirror}
+N 530 -280 530 -220 {lab=vbias_in}
+N 490 -280 530 -280 {lab=vbias_in}
 N 630 -190 630 -160 {lab=VSS}
-N 530 -220 580 -220 {lab=vbias_mirror}
-N 580 -220 590 -220 {lab=vbias_mirror}
+N 530 -220 580 -220 {lab=vbias_in}
+N 580 -220 590 -220 {lab=vbias_in}
 N 630 -600 630 -500 {lab=VDD}
 N 590 -470 590 -420 {lab=#net1}
 N 590 -420 630 -420 {lab=#net1}
 N 630 -440 630 -420 {lab=#net1}
 N 630 -420 630 -260 {lab=#net1}
 N 630 -260 630 -250 {lab=#net1}
-N 570 -280 570 -220 {lab=vbias_mirror}
-N 570 -280 720 -280 {lab=vbias_mirror}
-N 750 -280 750 -220 {lab=vbias_mirror}
+N 570 -280 570 -220 {lab=vbias_in}
+N 570 -280 720 -280 {lab=vbias_in}
+N 750 -280 750 -220 {lab=vbias_in}
 N 680 -160 980 -160 {lab=VSS}
 N 980 -190 980 -160 {lab=VSS}
 N 820 -160 820 -130 {lab=VSS}
@@ -49,8 +47,8 @@ N 410 -220 410 -160 {lab=VSS}
 N 410 -160 490 -160 {lab=VSS}
 N 630 -220 710 -220 {lab=VSS}
 N 710 -220 710 -160 {lab=VSS}
-N 720 -280 750 -280 {lab=vbias_mirror}
-N 750 -220 770 -220 {lab=vbias_mirror}
+N 720 -280 750 -280 {lab=vbias_in}
+N 750 -220 770 -220 {lab=vbias_in}
 N 810 -220 890 -220 {lab=VSS}
 N 890 -220 890 -160 {lab=VSS}
 N 980 -220 1070 -220 {lab=VSS}
@@ -70,10 +68,6 @@ N 1080 -400 1120 -400 {lab=vbias_1}
 N 980 -400 1060 -400 {lab=vbias_2}
 N 1060 -400 1060 -380 {lab=vbias_2}
 N 1060 -380 1120 -380 {lab=vbias_2}
-N 750 -380 750 -280 {lab=vbias_mirror}
-N 750 -380 1030 -380 {lab=vbias_mirror}
-N 1030 -380 1030 -360 {lab=vbias_mirror}
-N 1030 -360 1120 -360 {lab=vbias_mirror}
 N 810 -440 810 -350 {lab=VDD}
 N 810 -290 810 -250 {lab=vbias_1}
 N 770 -320 770 -270 {lab=vbias_1}
@@ -84,13 +78,15 @@ N 810 -500 810 -440 {lab=VDD}
 N 810 -370 880 -370 {lab=VDD}
 N 880 -370 880 -320 {lab=VDD}
 N 810 -320 880 -320 {lab=VDD}
+N 630 -600 650 -600 {lab=VDD}
+N 450 -520 490 -520 {lab=vbias_in}
 C {title.sym} 190 -50 0 0 {name=l1 author="Qasim Ebsim"}
 C {iopin.sym} 650 -640 0 0 {name=p1 lab=VDD}
 C {iopin.sym} 820 -110 0 0 {name=p2 lab=VSS}
 C {gf180mcu_fd_pr/nfet_03v3.sym} 510 -220 0 1 {name=M1
 L=1.4u
 W=32u
-nf=1
+nf=4
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -189,7 +185,6 @@ C {opin.sym} 1120 -400 0 0 {name=p3 lab=vbias_1
 }
 C {opin.sym} 1120 -380 0 0 {name=p4 lab=vbias_2
 }
-C {opin.sym} 1120 -360 0 0 {name=p6 lab=vbias_mirror}
 C {symbols/pfet_03v3.sym} 790 -320 0 0 {name=M9
 L=1.4u
 W=1u
@@ -204,4 +199,4 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {isource.sym} 490 -550 0 0 {name=I0 value=30u}
+C {ipin.sym} 450 -520 0 0 {name=p8 lab=vbias_in}
