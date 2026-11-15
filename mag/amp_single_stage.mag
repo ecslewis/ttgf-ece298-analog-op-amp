@@ -1,7 +1,7 @@
 magic
 tech gf180mcuD
 magscale 1 5
-timestamp 1794355397
+timestamp 1794707562
 << metal1 >>
 rect 4550 -2660 5015 -2510
 rect 4550 -4575 4650 -2660
@@ -82,12 +82,12 @@ rect 3975 -7064 3986 -7036
 rect 4014 -7064 4025 -7036
 rect 3975 -7075 4025 -7064
 rect 6080 -8200 6120 -8170
-use amp_bias  amp_bias_0
-timestamp 1794355397
+use amp_bias  amp_bias_0 /foss/designs/ttgf-ece298-analog-op-amp/mag
+timestamp 1794707562
 transform 1 0 0 0 1 0
-box 152 -8110 3015 -4575
+box 152 -8175 3015 -4525
 use amp_stg_1  amp_stg_1_0
-timestamp 1794355397
+timestamp 1794707562
 transform 1 0 0 0 1 0
 box 4979 -8200 7607 -2510
 << labels >>
