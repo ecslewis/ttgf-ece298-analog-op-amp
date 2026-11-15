@@ -60,7 +60,7 @@ rect 887 -179 898 -133
 rect 1067 -227 1113 -170
 rect -1113 -273 1113 -227
 << properties >>
-string FIXED_BBOX -10900 -2500 10900 2500
+string FIXED_BBOX -1090 -250 1090 250
 string gencell nfet_03v3
 string library gf180mcu
 string parameters w 1.0 l 9.0 m 1 nf 1 diffcov 100 polycov 100 guard 1 glc 1 grc 1 gtc 0 gbc 0 tbcov 100 rlcov 100 topc 1 botc 1 poverlap 0 doverlap 1 lmin 0.28 wmin 0.22 class mosfet full_metal 1 compatible {nfet_03v3 nfet_05v0 nfet_06v0 nfet_06v0_nvt}
