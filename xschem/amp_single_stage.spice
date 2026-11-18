@@ -1,0 +1,12 @@
+** sch_path: /foss/designs/ttgf-ece298-analog-op-amp/xschem/amp_single_stage.sch
+**.subckt amp_single_stage VDD vbias_in vout VSS vin_p vin_n
+*.opin vout
+*.ipin vin_n
+*.ipin vin_p
+*.iopin VSS
+*.iopin VDD
+*.ipin vbias_in
+*  x1 -  amp_bias  IS MISSING !!!!
+*  x2 -  amp_stg_1  IS MISSING !!!!
+**.ends
+.end

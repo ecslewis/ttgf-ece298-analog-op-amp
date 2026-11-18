@@ -1,0 +1,100 @@
+* NGSPICE file created from amp_single_stage_flat.ext - technology: gf180mcuD
+
+.subckt amp_single_stage_flat VDD VSS vbias_in vin_p vin_n vout
+X0 amp_stg_1_0.vbias_2 amp_stg_1_0.vbias_2 a_3642_n13000# VSS nfet_03v3 ad=3.52p pd=16.88u as=3.52p ps=16.88u w=8u l=1.4u
+X1 amp_stg_1_0.vbias_2 amp_stg_1_0.vbias_1 VDD VDD pfet_03v3 ad=0.44p pd=2.88u as=0.44p ps=2.88u w=1u l=1.4u
+X2 a_11852_n13330# amp_stg_1_0.vbias_2 vout VSS nfet_03v3 ad=1.04p pd=4.52u as=1.04p ps=4.52u w=4u l=2u
+X3 a_10120_n13330# vin_n a_11852_n13330# VSS nfet_03v3 ad=3.52p pd=16.88u as=2.08p ps=8.52u w=8u l=1.4u
+X4 vout amp_stg_1_0.vbias_1 a_12952_n9090# VDD pfet_03v3 ad=1.82p pd=7.52u as=1.82p ps=7.52u w=7u l=2u
+X5 a_10132_n9090# a_10132_n10910# VDD VDD pfet_03v3 ad=1.82p pd=7.52u as=3.08p ps=14.88u w=7u l=2u
+X6 VDD a_10132_n10910# a_12952_n9090# VDD pfet_03v3 ad=1.82p pd=7.52u as=1.82p ps=7.52u w=7u l=2u
+X7 a_10120_n13330# vbias_in VSS VSS nfet_03v3 ad=2.08p pd=8.52u as=3.52p ps=16.88u w=8u l=1.4u
+X8 a_12952_n9090# amp_stg_1_0.vbias_1 vout VDD pfet_03v3 ad=3.08p pd=14.88u as=1.82p ps=7.52u w=7u l=2u
+X9 a_11852_n13330# vin_n a_10120_n13330# VSS nfet_03v3 ad=2.08p pd=8.52u as=3.52p ps=16.88u w=8u l=1.4u
+X10 a_10132_n9090# amp_stg_1_0.vbias_1 a_10132_n10910# VDD pfet_03v3 ad=1.82p pd=7.52u as=1.82p ps=7.52u w=7u l=2u
+X11 a_10132_n10910# amp_stg_1_0.vbias_2 a_10488_n13330# VSS nfet_03v3 ad=1.04p pd=4.52u as=1.04p ps=4.52u w=4u l=2u
+X12 a_10120_n13330# vin_p a_10488_n13330# VSS nfet_03v3 ad=3.52p pd=16.88u as=2.08p ps=8.52u w=8u l=1.4u
+X13 a_3642_n13000# amp_stg_1_0.vbias_2 VSS VSS nfet_03v3 ad=0.44p pd=2.88u as=0.44p ps=2.88u w=1u l=9u
+X14 a_12952_n9090# a_10132_n10910# VDD VDD pfet_03v3 ad=1.82p pd=7.52u as=1.82p ps=7.52u w=7u l=2u
+X15 a_10488_n13330# amp_stg_1_0.vbias_2 a_10132_n10910# VSS nfet_03v3 ad=1.04p pd=4.52u as=1.76p ps=8.88u w=4u l=2u
+X16 vout amp_stg_1_0.vbias_2 a_11852_n13330# VSS nfet_03v3 ad=1.76p pd=8.88u as=1.04p ps=4.52u w=4u l=2u
+X17 vbias_in vbias_in VSS VSS nfet_03v3 ad=2.08p pd=8.52u as=2.08p ps=8.52u w=8u l=1.4u
+X18 VDD a_10132_n10910# a_12952_n9090# VDD pfet_03v3 ad=3.08p pd=14.88u as=1.82p ps=7.52u w=7u l=2u
+X19 a_10488_n13330# vin_p a_10120_n13330# VSS nfet_03v3 ad=2.08p pd=8.52u as=3.52p ps=16.88u w=8u l=1.4u
+X20 VDD a_10132_n10910# a_10132_n9090# VDD pfet_03v3 ad=1.82p pd=7.52u as=1.82p ps=7.52u w=7u l=2u
+X21 a_10132_n10910# amp_stg_1_0.vbias_1 a_10132_n9090# VDD pfet_03v3 ad=1.82p pd=7.52u as=1.82p ps=7.52u w=7u l=2u
+X22 VSS vbias_in vbias_in VSS nfet_03v3 ad=3.52p pd=16.88u as=2.08p ps=8.52u w=8u l=1.4u
+X23 vout amp_stg_1_0.vbias_1 a_12952_n9090# VDD pfet_03v3 ad=1.82p pd=7.52u as=3.08p ps=14.88u w=7u l=2u
+X24 a_10132_n9090# amp_stg_1_0.vbias_1 a_10132_n10910# VDD pfet_03v3 ad=3.08p pd=14.88u as=1.82p ps=7.52u w=7u l=2u
+X25 a_10488_n13330# amp_stg_1_0.vbias_2 a_10132_n10910# VSS nfet_03v3 ad=1.04p pd=4.52u as=1.04p ps=4.52u w=4u l=2u
+X26 vbias_in vbias_in VSS VSS nfet_03v3 ad=2.08p pd=8.52u as=3.52p ps=16.88u w=8u l=1.4u
+X27 a_11852_n13330# vin_n a_10120_n13330# VSS nfet_03v3 ad=2.08p pd=8.52u as=3.52p ps=16.88u w=8u l=1.4u
+X28 a_10120_n13330# vin_p a_10488_n13330# VSS nfet_03v3 ad=3.52p pd=16.88u as=2.08p ps=8.52u w=8u l=1.4u
+X29 VSS vbias_in vbias_in VSS nfet_03v3 ad=2.08p pd=8.52u as=2.08p ps=8.52u w=8u l=1.4u
+X30 a_10132_n9090# a_10132_n10910# VDD VDD pfet_03v3 ad=1.82p pd=7.52u as=1.82p ps=7.52u w=7u l=2u
+X31 vout amp_stg_1_0.vbias_2 a_11852_n13330# VSS nfet_03v3 ad=1.04p pd=4.52u as=1.04p ps=4.52u w=4u l=2u
+X32 a_10488_n13330# vin_p a_10120_n13330# VSS nfet_03v3 ad=2.08p pd=8.52u as=3.52p ps=16.88u w=8u l=1.4u
+X33 VSS vbias_in a_10120_n13330# VSS nfet_03v3 ad=2.08p pd=8.52u as=2.08p ps=8.52u w=8u l=1.4u
+X34 VSS vbias_in a_10120_n13330# VSS nfet_03v3 ad=3.52p pd=16.88u as=2.08p ps=8.52u w=8u l=1.4u
+X35 a_12952_n9090# a_10132_n10910# VDD VDD pfet_03v3 ad=1.82p pd=7.52u as=3.08p ps=14.88u w=7u l=2u
+X36 a_10120_n13330# vin_n a_11852_n13330# VSS nfet_03v3 ad=3.52p pd=16.88u as=2.08p ps=8.52u w=8u l=1.4u
+X37 VDD a_10132_n10910# a_10132_n9090# VDD pfet_03v3 ad=3.08p pd=14.88u as=1.82p ps=7.52u w=7u l=2u
+X38 a_11852_n13330# amp_stg_1_0.vbias_2 vout VSS nfet_03v3 ad=1.04p pd=4.52u as=1.76p ps=8.88u w=4u l=2u
+X39 a_12952_n9090# amp_stg_1_0.vbias_1 vout VDD pfet_03v3 ad=1.82p pd=7.52u as=1.82p ps=7.52u w=7u l=2u
+X40 amp_stg_1_0.vbias_1 amp_stg_1_0.vbias_1 VDD VDD pfet_03v3 ad=0.44p pd=2.88u as=0.44p ps=2.88u w=1u l=1.4u
+X41 a_10132_n10910# amp_stg_1_0.vbias_2 a_10488_n13330# VSS nfet_03v3 ad=1.76p pd=8.88u as=1.04p ps=4.52u w=4u l=2u
+X42 a_10120_n13330# vbias_in VSS VSS nfet_03v3 ad=2.08p pd=8.52u as=2.08p ps=8.52u w=8u l=1.4u
+X43 a_10132_n10910# amp_stg_1_0.vbias_1 a_10132_n9090# VDD pfet_03v3 ad=1.82p pd=7.52u as=3.08p ps=14.88u w=7u l=2u
+X44 amp_stg_1_0.vbias_1 vbias_in VSS VSS nfet_03v3 ad=3.52p pd=16.88u as=3.52p ps=16.88u w=8u l=1.4u
+C0 a_3642_n13000# amp_stg_1_0.vbias_2 0.54733f
+C1 a_12952_n9090# a_10132_n10910# 1.26161f
+C2 a_10120_n13330# a_10488_n13330# 0.8442f
+C3 a_10488_n13330# a_10132_n10910# 0.39052f
+C4 amp_stg_1_0.vbias_1 a_10132_n10910# 1.50042f
+C5 a_12952_n9090# vout 0.55988f
+C6 vin_p a_10488_n13330# 1.19494f
+C7 vbias_in a_10120_n13330# 1.1999f
+C8 amp_stg_1_0.vbias_1 vout 1.18882f
+C9 a_10488_n13330# a_11852_n13330# 0.28473f
+C10 amp_stg_1_0.vbias_1 a_10132_n9090# 1.42533f
+C11 vin_p vbias_in 0.01503f
+C12 a_12952_n9090# VDD 2.87894f
+C13 amp_stg_1_0.vbias_2 a_10488_n13330# 0.69852f
+C14 amp_stg_1_0.vbias_1 amp_stg_1_0.vbias_2 0.95896f
+C15 amp_stg_1_0.vbias_1 VDD 10.7018f
+C16 vbias_in amp_stg_1_0.vbias_2 0.31089f
+C17 vin_n a_10488_n13330# 0.4067f
+C18 vin_n vbias_in 0.20294f
+C19 a_3642_n13000# amp_stg_1_0.vbias_1 0.03076f
+C20 vin_p a_10120_n13330# 1.11672f
+C21 vin_p a_10132_n10910# 0.04198f
+C22 a_10120_n13330# a_11852_n13330# 0.77481f
+C23 a_3642_n13000# vbias_in 0.01983f
+C24 a_10132_n10910# vout 0.06432f
+C25 a_10132_n10910# a_10132_n9090# 1.88239f
+C26 vin_p vout 0.02598f
+C27 vin_p a_11852_n13330# 0.12293f
+C28 a_12952_n9090# amp_stg_1_0.vbias_1 1.43237f
+C29 vout a_11852_n13330# 0.394f
+C30 amp_stg_1_0.vbias_2 a_10132_n10910# 1.08154f
+C31 VDD a_10132_n10910# 13.0124f
+C32 vin_p amp_stg_1_0.vbias_2 0.18673f
+C33 amp_stg_1_0.vbias_2 vout 1.03866f
+C34 amp_stg_1_0.vbias_2 a_11852_n13330# 0.69983f
+C35 VDD vout 0.74125f
+C36 vin_n a_10120_n13330# 1.49071f
+C37 vbias_in amp_stg_1_0.vbias_1 0.37054f
+C38 VDD a_10132_n9090# 2.86922f
+C39 vin_p vin_n 0.16152f
+C40 amp_stg_1_0.vbias_2 VDD 0.27648f
+C41 vin_n a_11852_n13330# 1.16487f
+C42 vout VSS 2.75001f
+C43 VDD VSS 73.5976f
+C44 a_10120_n13330# VSS 17.09608f
+C45 a_3642_n13000# VSS 9.96816f
+C46 a_11852_n13330# VSS 4.55673f
+C47 a_10488_n13330# VSS 3.12432f
+C48 a_12952_n9090# VSS 0.29775f
+C49 a_10132_n9090# VSS 1.30243f
+.ends
+

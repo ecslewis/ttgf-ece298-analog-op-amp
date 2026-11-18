@@ -1,7 +1,7 @@
 magic
 tech gf180mcuD
 magscale 1 10
-timestamp 1794707800
+timestamp 1794968128
 << metal1 >>
 rect 9970 -5168 15202 -5020
 rect 9970 -5220 10974 -5168
@@ -868,47 +868,47 @@ rect 12320 -16000 12332 -15944
 rect 12388 -16000 12400 -15944
 rect 12320 -16012 12400 -16000
 use pfet_03v3_W5SFVU  M2
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 11176 0 1 -8390
 box -1206 -910 1206 910
 use nfet_03v3_8EAYTP  M3 /foss/designs/ttgf-ece298-analog-op-amp/mag
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 12586 0 1 -14950
 box -966 -1010 966 1010
 use nfet_03v3_D3XTXL  M4
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 13996 0 1 -10510
 box -1206 -610 1206 610
 use nfet_03v3_D3XTXL  M5
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 11176 0 1 -10510
 box -1206 -610 1206 610
 use pfet_03v3_W5SFVU  M8
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 13996 0 1 -8390
 box -1206 -910 1206 910
 use pfet_03v3_W5SFVU  M9
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 11176 0 1 -6170
 box -1206 -910 1206 910
 use pfet_03v3_W5SFVU  M10
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 13996 0 1 -6170
 box -1206 -910 1206 910
 use nfet_03v3_SSV5GB  nfet_03v3_SSV5GB_0
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 10540 0 1 -12530
 box -582 -1010 582 1010
 use nfet_03v3_SSV5GB  nfet_03v3_SSV5GB_1
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 11904 0 1 -12530
 box -582 -1010 582 1010
 use nfet_03v3_SSV5GB  nfet_03v3_SSV5GB_2
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 13268 0 1 -12530
 box -582 -1010 582 1010
 use nfet_03v3_SSV5GB  nfet_03v3_SSV5GB_3
-timestamp 1794707800
+timestamp 1794968128
 transform 1 0 14632 0 1 -12530
 box -582 -1010 582 1010
 << labels >>
