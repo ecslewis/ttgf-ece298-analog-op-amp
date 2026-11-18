@@ -21,7 +21,7 @@ The amplifier consists of two coordinated sub-blocks:
    - **High DC Gain**: The cascode configuration yields an open-loop DC gain exceeding **$100\text{ dB}$** with a single dominant pole at the output node, ensuring inherent stability and large phase margin without complex Miller compensation capacitors.
 
 2. **Bias Generation Network (`amp_bias`)**:
-   - Accepts a single external $30\,\mu\text{A}$ reference current ($I_{ref}$) through `vbias_in` (`ua[4]`).
+   - Accepts a single external $30\,\mu\text{A}$ reference current ($I_{ref}$) through `vbias_in` (`ua[3]`).
    - Generates the critical bias voltages required to keep all cascode transistors in the active saturation region:
      - `vbias_tail`: Sets the tail current source to mirror the $30\,\mu\text{A}$ bias.
      - `vbias_1` ($\approx 1.62\text{ V}$): Sets the gate bias for the PMOS cascode current mirrors.
@@ -54,7 +54,7 @@ The amplifier consists of two coordinated sub-blocks:
 | `ua[0]` | Input | `vin_p` | Non-inverting analog input ($V_{cm} \approx 1.2\text{ V}$) |
 | `ua[1]` | Input | `vin_n` | Inverting analog input |
 | `ua[2]` | Output | `vout` | Single-ended analog output |
-| `ua[4]` | Input | `vbias_in` | Reference current input (sink/source $30\,\mu\text{A}$ nominal) |
+| `ua[3]` | Input | `vbias_in` | Reference current input (sink/source $30\,\mu\text{A}$ nominal) |
 | `VDPWR` | Power | `VDD` | $3.3\text{ V}$ Analog core power supply |
 | `VGND` | Ground | `VSS` | $0\text{ V}$ Ground return |
 
@@ -67,7 +67,7 @@ The amplifier consists of two coordinated sub-blocks:
 ### 1. Power Supply and Biasing Setup
 1. Connect `VGND` (Pin ground) to clean bench ground ($0\text{ V}$).
 2. Connect `VDPWR` to a low-noise $3.3\text{ V}$ regulated power supply.
-3. Connect a precision current source providing $30\,\mu\text{A}$ into `ua[4]` (`vbias_in`), or connect a precision resistor ($R_{bias} \approx (3.3\text{V} - 0.78\text{V}) / 30\,\mu\text{A} \approx 84.5\text{ k}\Omega$) from `VDPWR` to `ua[4]`.
+3. Connect a precision current source providing $30\,\mu\text{A}$ into `ua[3]` (`vbias_in`), or connect a precision resistor ($R_{bias} \approx (3.3\text{V} - 0.78\text{V}) / 30\,\mu\text{A} \approx 84.5\text{ k}\Omega$) from `VDPWR` to `ua[3]`.
 
 ### 2. Unity-Gain Buffer Test (Functional Verification)
 1. Configure the op-amp in unity-gain feedback by externally tying `ua[2]` (`vout`) directly to `ua[1]` (`vin_n`).
