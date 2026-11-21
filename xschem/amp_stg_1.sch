@@ -60,7 +60,21 @@ N 580 -600 630 -600 {lab=#net3}
 N 580 -600 580 -550 {lab=#net3}
 N 520 -450 580 -450 {lab=#net3}
 N 580 -550 580 -450 {lab=#net3}
-C {title.sym} 160 -30 0 0 {name=l1 author="Qasim Ebsim"}
+N 740 -140 770 -140 {lab=VSS}
+N 740 -140 740 -110 {lab=VSS}
+N 740 -110 770 -110 {lab=VSS}
+N 810 -140 810 -110 {lab=VSS}
+N 780 -110 810 -110 {lab=VSS}
+N 770 -170 810 -170 {lab=VSS}
+N 810 -170 840 -170 {lab=VSS}
+N 840 -170 840 -140 {lab=VSS}
+N 810 -110 840 -110 {lab=VSS}
+N 840 -140 840 -110 {lab=VSS}
+N 770 -110 810 -110 {lab=VSS}
+N 600 -110 780 -110 {lab=VSS}
+N 600 -120 600 -110 {lab=VSS}
+N 600 -120 600 -110 {lab=VSS}
+C {title.sym} 160 -30 0 0 {name=l1 author="Qasim Ebsim & Ella Lewis"}
 C {gf180mcu_fd_pr/pfet_03v3.sym} 540 -500 0 1 {name=M2
 L=2.0u
 W=28u
@@ -197,4 +211,18 @@ spiceprefix=X
 C {ipin.sym} 370 -180 0 0 {name=p7 lab=vbias_tail}
 C {ipin.sym} 370 -330 0 0 {name=p8 lab=vbias_2}
 C {ipin.sym} 360 -430 0 0 {name=p9 lab=vbias_1
+}
+C {gf180mcu_fd_pr/nfet_03v3.sym} 790 -140 0 1 {name=MD
+L=1.4u
+W=16u
+nf=2
+m=2
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=nfet_03v3
+spiceprefix=X
 }
