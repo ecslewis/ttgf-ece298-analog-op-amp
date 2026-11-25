@@ -1,12 +1,18 @@
 magic
 tech gf180mcuD
 magscale 1 5
-timestamp 1794977230
+timestamp 1795621340
+<< checkpaint >>
+rect 1112 -9050 4015 -6950
 << metal1 >>
-rect 4540 -2660 5015 -2510
-rect 4540 -4575 4660 -2660
+rect 4510 -2660 5015 -2510
+rect 4510 -4525 4660 -2660
+rect 3015 -4575 4660 -4525
 rect 2915 -4635 4660 -4575
+rect 3015 -4675 4660 -4635
+rect 2112 -8050 4985 -7950
 rect 2915 -8110 5015 -8050
+rect 3015 -8175 4985 -8110
 << metal2 >>
 rect 3380 -3840 5015 -3800
 rect 3380 -5350 3420 -3840
@@ -22,13 +28,13 @@ rect 2915 -8110 5015 -8050
 << metal3 >>
 rect 6080 -8200 6120 -8170
 use amp_bias  amp_bias_0
-timestamp 1794970246
+timestamp 1794977250
 transform 1 0 0 0 1 0
 box 152 -8175 3015 -4525
 use amp_stg_1  amp_stg_1_0
-timestamp 1794968128
+timestamp 1795627175
 transform 1 0 0 0 1 0
-box 4979 -8200 7607 -2510
+box 4985 -8200 7601 -2510
 << labels >>
 rlabel metal1 4550 -3600 4650 -3500 1 VDD
 port 1 n
