@@ -65,15 +65,12 @@ N 740 -140 740 -110 {lab=VSS}
 N 740 -110 770 -110 {lab=VSS}
 N 810 -140 810 -110 {lab=VSS}
 N 780 -110 810 -110 {lab=VSS}
-N 770 -170 810 -170 {lab=VSS}
-N 810 -170 840 -170 {lab=VSS}
-N 840 -170 840 -140 {lab=VSS}
-N 810 -110 840 -110 {lab=VSS}
-N 840 -140 840 -110 {lab=VSS}
 N 770 -110 810 -110 {lab=VSS}
 N 600 -110 780 -110 {lab=VSS}
 N 600 -120 600 -110 {lab=VSS}
 N 600 -120 600 -110 {lab=VSS}
+N 770 -220 770 -170 {lab=#net6}
+N 690 -220 770 -220 {lab=#net6}
 C {title.sym} 160 -30 0 0 {name=l1 author="Qasim Ebsim & Ella Lewis"}
 C {gf180mcu_fd_pr/pfet_03v3.sym} 540 -500 0 1 {name=M2
 L=2.0u
@@ -214,8 +211,8 @@ C {ipin.sym} 360 -430 0 0 {name=p9 lab=vbias_1
 }
 C {gf180mcu_fd_pr/nfet_03v3.sym} 790 -140 0 1 {name=MD
 L=1.4u
-W=16u
-nf=2
+W=8u
+nf=1
 m=2
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
