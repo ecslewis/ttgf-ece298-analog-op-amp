@@ -3,47 +3,51 @@ Tiny Tapeout Project Datasheet Documentation
 Project: Telescopic Cascode Operational Amplifier
 Target: GlobalFoundries 180nm CMOS (GF180MCU 3.3V)
 Course: ECE298A
-Authors: Ella Lewis, Qasim Ebsim
+Authors: Qasim Ebsim, Ella Lewis
 -->
 
 ## How it works
 
-This project implements a high-gain, single-stage telescopic cascode operational amplifier with an integrated self-biased current generator, fabricated in the GlobalFoundries GF180MCU 3.3V CMOS process (`gf180mcuD`).
+This project implements a single-stage **telescopic cascode operational amplifier** (`amp_stg_1`) paired with an integrated **self-biased cascode reference network** (`amp_bias`) in the GlobalFoundries GF180MCU 3.3 V CMOS process (`gf180mcuD`).
 
 ### Circuit Architecture
 
-The amplifier consists of two coordinated sub-blocks:
+![Top-Level Block Schematic](images/sch_amp_single_stage.png)
 
 1. **Amplifier Core (`amp_stg_1`)**:
-   - **Input Differential Pair**: NMOS input transistors (`XM1`, `XM7`, $W/L = 32\mu\text{m} / 1.4\mu\text{m}$) operating with an input common-mode voltage centered around $1.2\text{ V}$.
-   - **Telescopic Cascode Stage**: Both the NMOS signal path (`XM4`, `XM5`) and PMOS current-mirror active load (`XM2`, `XM8`) utilize cascode transistors ($L = 2.0\mu\text{m}$) to dramatically boost output resistance without requiring multiple gain stages:
-     $$R_{out} \approx (g_{m,n\_casc} \cdot r_{o,n}^2) \parallel (g_{m,p\_casc} \cdot r_{o,p}^2)$$
-   - **High DC Gain**: The cascode configuration yields an open-loop DC gain exceeding **$100\text{ dB}$** with a single dominant pole at the output node, ensuring inherent stability and large phase margin without complex Miller compensation capacitors.
+   - **Common-Centroid Input Pair**: NMOS differential pair (`XM1`, `XM7`, $W/L = 32\,\mu\text{m}/1.4\,\mu\text{m}$ with dummy edge devices `XMD`) centered around $V_{cm} \approx 1.2\text{ V}$.
+   - **Telescopic Cascode Stage**: Long-channel NMOS (`XM4`, `XM5`, $16\,\mu\text{m}/2.0\,\mu\text{m}$) and PMOS (`XM2`, `XM8`, $28\,\mu\text{m}/2.0\,\mu\text{m}$) cascodes boost output impedance ($R_{out} \approx (g_{m,n} r_{o,n}^2) \parallel (g_{m,p} r_{o,p}^2)$) to achieve $>100\text{ dB}$ gain with a single dominant pole at `vout`.
+   - **Active Load Mirror**: PMOS current mirror (`XM9`, `XM10`, $28\,\mu\text{m}/2.0\,\mu\text{m}$) performs differential-to-single-ended conversion.
+
+![Amplifier Core Schematic](images/sch_amp_stg_1.png)
 
 2. **Bias Generation Network (`amp_bias`)**:
-   - Accepts a single external $30\,\mu\text{A}$ reference current ($I_{ref}$) through `vbias_in` (`ua[3]`).
-   - Generates the critical bias voltages required to keep all cascode transistors in the active saturation region:
-     - `vbias_tail`: Sets the tail current source to mirror the $30\,\mu\text{A}$ bias.
-     - `vbias_1` ($\approx 1.62\text{ V}$): Sets the gate bias for the PMOS cascode current mirrors.
-     - `vbias_2` ($\approx 1.89\text{ V}$): Sets the gate bias for the NMOS cascode transistors.
-   - Post-layout parasitic extraction (PEX) confirms robust startup dynamics with settling times under $20\text{ ns}$ and enhanced high-frequency power supply ripple suppression.
+   - Accepts a single external $30\,\mu\text{A}$ reference current into `vbias_in` (`ua[3]`), mirrored $1{:}1$ into the amplifier tail (`XM3`).
+   - A $4{:}1$ ratioed current mirror (`XM1` $\rightarrow$ `XM3`) and PMOS stack (`XM4`, `XM5`) generate `vbias_1`, while a diode-connected NMOS (`XM8`) stacked above a deep-triode long-channel FET (`XM7`, $1\,\mu\text{m}/9.0\,\mu\text{m}$) creates `vbias_2` with clean headroom across PVT corners.
+
+![Bias Generator Schematic](images/sch_amp_bias.png)
+
+### Physical Layout & Power Delivery
+
+- **Power Grid & Decoupling**: Unified slotted `M4` (`VDPWR`) and `M3` (`VGND`) planes tied into the canonical TinyTapeout power spines, backed by $12.07\text{ pF}$ of MOS decoupling capacitors, a $0.52\text{ pF}$ `M1–M4` MOM capacitor, and $4.71\text{ pF}$ of distributed inter-metal plane capacitance.
+- **Core Matching & Signal Integrity**: Common-centroid `10`-finger input pair (`D - P - N N - P P - N N - P - D`), mirror-symmetric core routing, symmetric `vin_p`/`vin_n` differential corridors, and redundant dual `via2` transitions.
 
 ---
 
-### Key Specifications (Simulated with Parasitic Extraction)
+### Key Specifications (Full-Layout RC PEX, $3.3\text{ V}$, $27^\circ\text{C}$, $C_L = 2\text{ pF}$)
 
 | Parameter | Value | Condition / Notes |
 | :--- | :---: | :--- |
-| **Technology** | GF180MCU 3.3V CMOS | 7-metal stack (`gf180mcuD`) |
-| **Supply Voltage ($V_{DD}$)** | $3.3\text{ V}$ | Nominal operating supply |
-| **Open-Loop DC Gain ($A_0$)** | **$101.9\text{ dB}$** | $V_{cm} = 1.2\text{ V}$, $C_L = 1\text{ pF}$ |
-| **Unity-Gain Bandwidth ($f_u$)** | **$32.5\text{ MHz}$** | Load capacitance $C_L = 1\text{ pF}$ |
-| **Phase Margin ($\text{PM}$)** | **$> 80^\circ$** | Inherent dominant pole stability |
-| **Input Common-Mode Range** | $1.0\text{ V}$ to $1.5\text{ V}$ | Optimal nominal bias at $1.2\text{ V}$ |
-| **Output Voltage Swing** | $0.8\text{ V}$ to $2.5\text{ V}$ | Telescopic cascode headroom |
-| **Tail Current ($I_{tail}$)** | $30\,\mu\text{A}$ | Set by $30\,\mu\text{A}$ reference input |
-| **Total Power Dissipation** | $\approx 250\,\mu\text{W}$ | Core amp + bias network |
-| **Layout Footprint** | $1 \times 2\text{ Tile}$ | Standard Tiny Tapeout analog slot |
+| **Technology** | GF180MCU 3.3 V CMOS | `gf180mcuD` (`M1–M4` used) |
+| **Supply Voltage ($V_{DD}$)** | $3.3\text{ V}$ | Nominal `VDPWR` supply |
+| **Open-Loop DC Gain ($A_0$)** | **$102.06\text{ dB}$** | Ideal: $102.43\text{ dB}$ |
+| **Unity-Gain Bandwidth ($\text{GBW}$)** | **$16.93\text{ MHz}$** | $C_L = 2\text{ pF}$ |
+| **Phase Margin ($\text{PM}$)** | **$70.59^\circ$** | Critically damped (`0.08%` overshoot) |
+| **CMRR / PSRR+ @ DC** | **$107.5\text{ dB}$ / $104.2\text{ dB}$** | — |
+| **Input Offset ($V_{os}$, 100-Run MC)** | **$+0.18\text{ mV}$ ($\sigma = 1.07\text{ mV}$)** | $\pm 3\sigma = \pm 3.21\text{ mV}$ |
+| **Slew Rate (Rise / Fall)** | **$11.87\text{ / }10.77\text{ V/}\mu\text{s}$** | $0.90\text{ V} \to 1.25\text{ V}$ large-signal step |
+| **Quiescent Current / Power** | **$149.68\,\mu\text{A}$ / $0.494\text{ mW}$** | $I_{ref} = 30\,\mu\text{A}$ |
+| **Layout Footprint** | $1 \times 2\text{ Tile}$ | TinyTapeout analog macro ($346.64 \times 325.36\,\mu\text{m}$) |
 
 ---
 
@@ -54,41 +58,35 @@ The amplifier consists of two coordinated sub-blocks:
 | `ua[0]` | Input | `vin_p` | Non-inverting analog input ($V_{cm} \approx 1.2\text{ V}$) |
 | `ua[1]` | Input | `vin_n` | Inverting analog input |
 | `ua[2]` | Output | `vout` | Single-ended analog output |
-| `ua[3]` | Input | `vbias_in` | Reference current input (sink/source $30\,\mu\text{A}$ nominal) |
-| `VDPWR` | Power | `VDD` | $3.3\text{ V}$ Analog core power supply |
-| `VGND` | Ground | `VSS` | $0\text{ V}$ Ground return |
+| `ua[3]` | Input | `vbias_in` | Reference current input ($30\,\mu\text{A}$ nominal) |
+| `VDPWR` | Power | `VDD` | $3.3\text{ V}$ analog core power supply |
+| `VGND` | Ground | `VSS` | $0\text{ V}$ ground return |
 
-*Note: Digital dedicated I/O pins (`ui_in`, `uo_out`, `uio`) are tied off internally to ground and can remain unconnected during analog operation.*
+*Note: Unused digital pins (`ui_in`, `uo_out`, `uio`) are tied internally to ground.*
 
 ---
 
 ## How to test
 
 ### 1. Power Supply and Biasing Setup
-1. Connect `VGND` (Pin ground) to clean bench ground ($0\text{ V}$).
-2. Connect `VDPWR` to a low-noise $3.3\text{ V}$ regulated power supply.
-3. Connect a precision current source providing $30\,\mu\text{A}$ into `ua[3]` (`vbias_in`), or connect a precision resistor ($R_{bias} \approx (3.3\text{V} - 0.78\text{V}) / 30\,\mu\text{A} \approx 84.5\text{ k}\Omega$) from `VDPWR` to `ua[3]`.
+1. Connect `VGND` to clean bench ground ($0\text{ V}$) and `VDPWR` to a low-noise $3.3\text{ V}$ power supply.
+2. Source $30\,\mu\text{A}$ into `ua[3]` (`vbias_in`) using a precision current source (or an external $\approx 84.5\text{ k}\Omega$ $0.1\%$ resistor from `VDPWR` to `ua[3]`).
 
 ### 2. Unity-Gain Buffer Test (Functional Verification)
-1. Configure the op-amp in unity-gain feedback by externally tying `ua[2]` (`vout`) directly to `ua[1]` (`vin_n`).
-2. Apply a DC voltage to `ua[0]` (`vin_p`) using a precision voltage source.
-3. Sweep `vin_p` from $1.0\text{ V}$ to $1.5\text{ V}$ in $50\text{ mV}$ steps:
-   - Verify that $V_{out}$ linearly tracks $V_{in}$ with less than $5\text{ mV}$ offset error.
-4. Apply a $100\text{ kHz}$ sinusoidal signal ($50\text{ mV}_{p-p}$ centered at $1.2\text{ V}$ DC) to `vin_p`:
-   - Observe `vout` on an oscilloscope; verify clean, distortion-free unity-gain following.
-5. Apply a $100\text{ kHz}$ square wave ($100\text{ mV}_{p-p}$, $10\text{ ns}$ edge rate) to test step response and verify that no ringing or overshoot occurs.
+1. Tie `ua[2]` (`vout`) externally to `ua[1]` (`vin_n`) for unity-gain feedback.
+2. Sweep `ua[0]` (`vin_p`) around $1.0\text{ V}$ to $1.5\text{ V}$ and verify linear tracking within $\pm 5\text{ mV}$.
+3. Apply a $50\text{ mV}$ step centered at $1.2\text{ V}$ DC on `vin_p` and observe `vout` with a low-capacitance active/10× probe to verify fast settling ($\approx 28.7\text{ ns}$ at $2\text{ pF}$) without ringing.
 
-### 3. Open-Loop AC & Small-Signal Characterization
-1. Build a closed-loop inverting or non-inverting amplifier configuration with external precision resistors (e.g. $R_1 = 10\text{ k}\Omega$, $R_2 = 100\text{ k}\Omega$ for closed-loop gain $A_v = 10$).
-2. Connect a function generator to the input and a spectrum analyzer / high-impedance oscilloscope probe to `vout`.
-3. Measure closed-loop frequency response to verify the $-3\text{ dB}$ cutoff frequency and compute the effective gain-bandwidth product ($f_u \approx 30\text{ MHz}$).
+### 3. Open-Loop AC & Closed-Loop Gain Characterization
+1. Configure a closed-loop inverting or non-inverting amplifier using external precision resistors (e.g., $R_1 = 10\text{ k}\Omega$, $R_2 = 100\text{ k}\Omega$ for $A_v = 10$).
+2. Measure the $-3\text{ dB}$ closed-loop bandwidth and confirm gain-bandwidth product ($\text{GBW} \approx 16.9\text{ MHz}$ at $2\text{ pF}$ load).
 
 ---
 
 ## External hardware
 
-1. **Power Supply**: Low-noise $3.3\text{ V}$ DC bench power supply.
-2. **Current Reference**: A Keithley / SMU precision DC current source set to $30\,\mu\text{A}$, or an external $84.5\text{ k}\Omega$ ($0.1\%$) metal film resistor tied to $V_{DD}$.
-3. **Signal Generator**: Arbitrary waveform generator capable of producing signals with DC common-mode offsets ($1.2\text{ V}_{DC}$).
-4. **Oscilloscope**: Two-channel oscilloscope ($> 100\text{ MHz}$ bandwidth) with $10\times$ high-impedance probes ($C_{probe} \le 10\text{ pF}$) to prevent excessive capacitive loading on `vout`.
-5. **Breadboard / Custom PCB**: Standard Tiny Tapeout carrier breakout board with SMA or 0.1-inch header connections to `ua[0..4]`.
+1. **Power Supply**: Low-noise $3.3\text{ V}$ DC bench supply.
+2. **Current Reference**: Precision DC current source set to $30\,\mu\text{A}$ (or $84.5\text{ k}\Omega$, $0.1\%$ metal-film resistor tied to $V_{DD}$).
+3. **Signal Generator**: Arbitrary waveform generator supporting a $1.2\text{ V}_{DC}$ common-mode offset.
+4. **Oscilloscope**: $>100\text{ MHz}$ scope with low-capacitance high-impedance probes ($\le 10\text{ pF}$).
+5. **Breakout Board**: Standard TinyTapeout analog carrier board wired to `ua[0..3]`.
