@@ -1,0 +1,269 @@
+| units: 0.5 tech: gf180mcuD format: MIT
+x vbias_in vbias_in VSS VSS s=83200,1704 d=140800,3376 l=280 w=1600 x=1706 y=-15749 nfet_03v3
+x vbias_in VSS vbias_in VSS s=140800,3376 d=83200,1704 l=280 w=1600 x=555 y=-15749 nfet_03v3
+x vbias_in VSS vbias_in VSS s=83200,1704 d=83200,1704 l=280 w=1600 x=1322 y=-15749 nfet_03v3
+x vbias_in vbias_in VSS VSS s=83200,1704 d=83200,1704 l=280 w=1600 x=939 y=-15749 nfet_03v3
+x vbias_in VSS amp_bias_0/vbias_1 VSS s=140800,3376 d=140800,3376 l=280 w=1600 x=2731 y=-15749 nfet_03v3
+x amp_bias_0/vbias_1 VDD amp_bias_0/vbias_1 VDD s=17600,576 d=17600,576 l=280 w=200 x=2731 y=-10699 pfet_03v3
+x amp_bias_0/vbias_1 VDD amp_bias_0/vbias_2 VDD s=17600,576 d=17600,576 l=280 w=200 x=3731 y=-10699 pfet_03v3
+x amp_bias_0/vbias_2 amp_bias_0/m1_3638_n12670# VSS VSS s=17600,576 d=17600,576 l=1800 w=200 x=3771 y=-13752 nfet_03v3
+x amp_bias_0/vbias_2 amp_bias_0/m1_3638_n12670# amp_bias_0/vbias_2 VSS s=140800,3376 d=140800,3376 l=280 w=1600 x=3731 y=-12999 nfet_03v3
+x amp_stg_1_0/m1_14939_n6949# VDD amp_stg_1_0/m1_14477_n6868# VDD s=123200,2976 d=72800,1504 l=400 w=1400 x=13041 y=-6869 pfet_03v3
+x amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_14477_n6868# VDD VDD s=72800,1504 d=72800,1504 l=400 w=1400 x=13545 y=-6869 pfet_03v3
+x amp_stg_1_0/m1_14939_n6949# VDD amp_stg_1_0/m1_14477_n6868# VDD s=72800,1504 d=72800,1504 l=400 w=1400 x=14048 y=-6869 pfet_03v3
+x amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_14477_n6868# VDD VDD s=72800,1504 d=123200,2976 l=400 w=1400 x=14552 y=-6869 pfet_03v3
+x amp_bias_0/vbias_1 amp_stg_1_0/m1_10136_n7958# amp_stg_1_0/m1_14939_n6949# VDD s=123200,2976 d=72800,1504 l=400 w=1400 x=10221 y=-9089 pfet_03v3
+x amp_bias_0/vbias_1 amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_10136_n7958# VDD s=72800,1504 d=72800,1504 l=400 w=1400 x=10725 y=-9089 pfet_03v3
+x amp_bias_0/vbias_1 amp_stg_1_0/m1_10136_n7958# amp_stg_1_0/m1_14939_n6949# VDD s=72800,1504 d=72800,1504 l=400 w=1400 x=11228 y=-9089 pfet_03v3
+x amp_bias_0/vbias_1 amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_10136_n7958# VDD s=72800,1504 d=123200,2976 l=400 w=1400 x=11732 y=-9089 pfet_03v3
+x amp_bias_0/vbias_2 vout amp_stg_1_0/m1_11872_n12338# VSS s=70400,1776 d=41600,904 l=400 w=800 x=13041 y=-10909 nfet_03v3
+x amp_bias_0/vbias_2 amp_stg_1_0/m1_11872_n12338# vout VSS s=41600,904 d=41600,904 l=400 w=800 x=13545 y=-10909 nfet_03v3
+x amp_bias_0/vbias_2 vout amp_stg_1_0/m1_11872_n12338# VSS s=41600,904 d=41600,904 l=400 w=800 x=14048 y=-10909 nfet_03v3
+x amp_bias_0/vbias_2 amp_stg_1_0/m1_11872_n12338# vout VSS s=41600,904 d=70400,1776 l=400 w=800 x=14552 y=-10909 nfet_03v3
+x vbias_in amp_stg_1_0/m1_10122_n12978# VSS VSS s=83200,1704 d=140800,3376 l=280 w=1600 x=13022 y=-15749 nfet_03v3
+x vbias_in VSS amp_stg_1_0/m1_10122_n12978# VSS s=140800,3376 d=83200,1704 l=280 w=1600 x=11871 y=-15749 nfet_03v3
+x vbias_in VSS amp_stg_1_0/m1_10122_n12978# VSS s=83200,1704 d=83200,1704 l=280 w=1600 x=12638 y=-15749 nfet_03v3
+x vbias_in amp_stg_1_0/m1_10122_n12978# VSS VSS s=83200,1704 d=83200,1704 l=280 w=1600 x=12255 y=-15749 nfet_03v3
+x amp_bias_0/vbias_2 amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_10508_n12038# VSS s=70400,1776 d=41600,904 l=400 w=800 x=10221 y=-10909 nfet_03v3
+x amp_bias_0/vbias_2 amp_stg_1_0/m1_10508_n12038# amp_stg_1_0/m1_14939_n6949# VSS s=41600,904 d=41600,904 l=400 w=800 x=10725 y=-10909 nfet_03v3
+x amp_bias_0/vbias_2 amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_10508_n12038# VSS s=41600,904 d=41600,904 l=400 w=800 x=11228 y=-10909 nfet_03v3
+x amp_bias_0/vbias_2 amp_stg_1_0/m1_10508_n12038# amp_stg_1_0/m1_14939_n6949# VSS s=41600,904 d=70400,1776 l=400 w=800 x=11732 y=-10909 nfet_03v3
+x vin_p amp_stg_1_0/m1_10508_n12038# amp_stg_1_0/m1_10122_n12978# VSS s=83200,1704 d=140800,3376 l=280 w=1600 x=10592 y=-13329 nfet_03v3
+x vin_p amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/m1_10508_n12038# VSS s=140800,3376 d=83200,1704 l=280 w=1600 x=10209 y=-13329 nfet_03v3
+x vin_n amp_stg_1_0/m1_11872_n12338# amp_stg_1_0/m1_10122_n12978# VSS s=83200,1704 d=140800,3376 l=280 w=1600 x=11956 y=-13329 nfet_03v3
+x vin_n amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/m1_11872_n12338# VSS s=140800,3376 d=83200,1704 l=280 w=1600 x=11573 y=-13329 nfet_03v3
+x amp_bias_0/vbias_1 amp_stg_1_0/m1_14477_n6868# vout VDD s=123200,2976 d=72800,1504 l=400 w=1400 x=13041 y=-9089 pfet_03v3
+x amp_bias_0/vbias_1 vout amp_stg_1_0/m1_14477_n6868# VDD s=72800,1504 d=72800,1504 l=400 w=1400 x=13545 y=-9089 pfet_03v3
+x amp_bias_0/vbias_1 amp_stg_1_0/m1_14477_n6868# vout VDD s=72800,1504 d=72800,1504 l=400 w=1400 x=14048 y=-9089 pfet_03v3
+x amp_bias_0/vbias_1 vout amp_stg_1_0/m1_14477_n6868# VDD s=72800,1504 d=123200,2976 l=400 w=1400 x=14552 y=-9089 pfet_03v3
+x vin_n amp_stg_1_0/m1_11872_n12338# amp_stg_1_0/m1_10122_n12978# VSS s=83200,1704 d=140800,3376 l=280 w=1600 x=13320 y=-13329 nfet_03v3
+x vin_n amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/m1_11872_n12338# VSS s=140800,3376 d=83200,1704 l=280 w=1600 x=12937 y=-13329 nfet_03v3
+x amp_stg_1_0/m1_14939_n6949# VDD amp_stg_1_0/m1_10136_n7958# VDD s=123200,2976 d=72800,1504 l=400 w=1400 x=10221 y=-6869 pfet_03v3
+x amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_10136_n7958# VDD VDD s=72800,1504 d=72800,1504 l=400 w=1400 x=10725 y=-6869 pfet_03v3
+x amp_stg_1_0/m1_14939_n6949# VDD amp_stg_1_0/m1_10136_n7958# VDD s=72800,1504 d=72800,1504 l=400 w=1400 x=11228 y=-6869 pfet_03v3
+x amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_10136_n7958# VDD VDD s=72800,1504 d=123200,2976 l=400 w=1400 x=11732 y=-6869 pfet_03v3
+x vin_p amp_stg_1_0/m1_10508_n12038# amp_stg_1_0/m1_10122_n12978# VSS s=83200,1704 d=140800,3376 l=280 w=1600 x=14684 y=-13329 nfet_03v3
+x vin_p amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/m1_10508_n12038# VSS s=140800,3376 d=83200,1704 l=280 w=1600 x=14301 y=-13329 nfet_03v3
+x VSS VSS VSS VSS s=83200,1704 d=140800,3376 l=280 w=1600 x=16048 y=-13329 nfet_03v3
+x VSS VSS VSS VSS s=140800,3376 d=83200,1704 l=280 w=1600 x=15665 y=-13329 nfet_03v3
+x VSS VSS VSS VSS s=83200,1704 d=140800,3376 l=280 w=1600 x=9228 y=-13329 nfet_03v3
+x VSS VSS VSS VSS s=140800,3376 d=83200,1704 l=280 w=1600 x=8845 y=-13329 nfet_03v3
+C amp_bias_0/vbias_1 VDD 10.8
+C amp_stg_1_0/m1_10136_n7958# VDD 2.9
+C amp_stg_1_0/m1_14477_n6868# VDD 2.9
+C amp_stg_1_0/m1_14939_n6949# VDD 13.0
+R VSS 9589
+= VSS VSUBS
+= VSS m2_5830_n16220#
+= VSS amp_bias_0/VSS
+= VSS amp_bias_0/M5/VSUBS
+= VSS amp_bias_0/M4/VSUBS
+= VSS amp_bias_0/M8/a_n366_n986#
+= VSS amp_bias_0/M7/a_900_n100#
+= VSS amp_bias_0/M7/a_n1126_n286#
+= VSS amp_bias_0/M1/a_716_n800#
+= VSS amp_bias_0/M1/a_n52_n800#
+= VSS amp_bias_0/M1/a_n804_n800#
+= VSS amp_bias_0/M1/a_n942_n986#
+= VSS amp_bias_0/M3/a_n228_n800#
+= VSS amp_bias_0/VSUBS
+= VSS amp_bias_0/M3/a_n366_n986#
+= VSS amp_stg_1_0/VSS
+= VSS amp_stg_1_0/M10/VSUBS
+= VSS amp_stg_1_0/M9/VSUBS
+= VSS amp_stg_1_0/M8/VSUBS
+= VSS amp_stg_1_0/M2/VSUBS
+= VSS amp_stg_1_0/M4/a_n1182_n586#
+= VSS amp_stg_1_0/M5/a_n1182_n586#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_5/a_332_n800#
+= VSS amp_stg_1_0/m1_9970_n11596#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_5/a_n52_n800#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_5/a_n420_n800#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_4/a_332_n800#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_4/a_n52_n800#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_4/a_n420_n800#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_5/a_52_n892#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_5/a_n332_n892#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_5/a_n558_n986#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_3/a_n558_n986#
+= VSS amp_stg_1_0/M3/a_716_n800#
+= VSS amp_stg_1_0/M3/a_n942_n986#
+= VSS amp_stg_1_0/M3/a_n52_n800#
+= VSS amp_stg_1_0/M3/a_n804_n800#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_2/a_n558_n986#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_1/a_n558_n986#
+= VSS amp_stg_1_0/m1_11620_n13996#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_4/a_52_n892#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_0/a_n558_n986#
+= VSS amp_stg_1_0/VSUBS
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_4/a_n332_n892#
+= VSS amp_stg_1_0/nfet_03v3_SSV5GB_4/a_n558_n986#
+C VDD0 67.4
+R VDD 21973
+= VDD amp_bias_0/VDD
+= VDD amp_bias_0/M5/a_n228_n100#
+= VDD amp_bias_0/M5/w_n390_n310#
+= VDD amp_bias_0/m1_3500_n10640#
+= VDD amp_bias_0/M4/a_n228_n100#
+= VDD amp_bias_0/M4/w_n390_n310#
+= VDD amp_bias_0/w_2480_n10950#
+= VDD amp_stg_1_0/VDD
+= VDD amp_stg_1_0/M10/a_956_n700#
+= VDD amp_stg_1_0/m1_14981_n5483#
+= VDD amp_stg_1_0/m1_14981_n6868#
+= VDD amp_stg_1_0/M10/a_n52_n700#
+= VDD amp_stg_1_0/m1_13973_n5483#
+= VDD amp_stg_1_0/m1_13973_n6868#
+= VDD amp_stg_1_0/M10/a_n1044_n700#
+= VDD amp_stg_1_0/m1_12965_n5483#
+= VDD amp_stg_1_0/m1_12965_n6868#
+= VDD amp_stg_1_0/M8/w_n1206_n910#
+= VDD amp_stg_1_0/M10/w_n1206_n910#
+= VDD amp_stg_1_0/m1_12827_n7043#
+= VDD amp_stg_1_0/M9/a_956_n700#
+= VDD amp_stg_1_0/M9/w_n1206_n910#
+= VDD amp_stg_1_0/M2/w_n1206_n910#
+= VDD amp_stg_1_0/m1_10008_n7560#
+= VDD amp_stg_1_0/M9/a_n52_n700#
+= VDD amp_stg_1_0/M9/a_n1044_n700#
+R amp_stg_1_0/m1_14477_n6868# 582
+= amp_stg_1_0/m1_14477_n6868# amp_stg_1_0/M10/a_452_n700#
+= amp_stg_1_0/m1_14477_n6868# amp_stg_1_0/m1_14477_n5483#
+= amp_stg_1_0/m1_14477_n6868# amp_stg_1_0/m1_13469_n6868#
+= amp_stg_1_0/m1_14477_n6868# amp_stg_1_0/M10/a_n556_n700#
+= amp_stg_1_0/m1_14477_n6868# amp_stg_1_0/m1_13469_n5483#
+= amp_stg_1_0/m1_14477_n6868# amp_stg_1_0/m1_12956_n7958#
+= amp_stg_1_0/m1_14477_n6868# amp_stg_1_0/M8/a_956_n700#
+= amp_stg_1_0/m1_14477_n6868# amp_stg_1_0/M8/a_n52_n700#
+= amp_stg_1_0/m1_14477_n6868# amp_stg_1_0/M8/a_n1044_n700#
+R amp_stg_1_0/m1_11872_n12338# 347
+= amp_stg_1_0/m1_11872_n12338# amp_stg_1_0/M4/a_452_n400#
+= amp_stg_1_0/m1_11872_n12338# amp_stg_1_0/M4/a_n556_n400#
+= amp_stg_1_0/m1_11872_n12338# amp_stg_1_0/nfet_03v3_SSV5GB_2/a_n52_n800#
+= amp_stg_1_0/m1_11872_n12338# amp_stg_1_0/nfet_03v3_SSV5GB_1/a_n52_n800#
+C vin_n0 4.5
+R vin_n 248
+= vin_n amp_stg_1_0/vn
+= vin_n amp_stg_1_0/nfet_03v3_SSV5GB_2/a_52_n892#
+= vin_n amp_stg_1_0/nfet_03v3_SSV5GB_2/a_n332_n892#
+= vin_n amp_stg_1_0/nfet_03v3_SSV5GB_1/a_52_n892#
+= vin_n amp_stg_1_0/nfet_03v3_SSV5GB_1/a_n332_n892#
+R amp_stg_1_0/m1_10508_n12038# 350
+= amp_stg_1_0/m1_10508_n12038# amp_stg_1_0/M5/a_452_n400#
+= amp_stg_1_0/m1_10508_n12038# amp_stg_1_0/M5/a_n556_n400#
+= amp_stg_1_0/m1_10508_n12038# amp_stg_1_0/nfet_03v3_SSV5GB_3/a_n52_n800#
+= amp_stg_1_0/m1_10508_n12038# amp_stg_1_0/nfet_03v3_SSV5GB_0/a_n52_n800#
+C vin_p0 4.3
+R vin_p 249
+= vin_p amp_stg_1_0/vp
+= vin_p amp_stg_1_0/nfet_03v3_SSV5GB_3/a_52_n892#
+= vin_p amp_stg_1_0/nfet_03v3_SSV5GB_3/a_n332_n892#
+= vin_p amp_stg_1_0/nfet_03v3_SSV5GB_0/a_52_n892#
+= vin_p amp_stg_1_0/nfet_03v3_SSV5GB_0/a_n332_n892#
+C amp_stg_1_0/m1_14939_n6949#0 2.1
+R amp_stg_1_0/m1_14939_n6949# 784
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M10/a_556_n792#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_14939_n5437#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_14554_n5437#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_14554_n6949#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_14435_n6949#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M10/a_52_n792#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_14435_n5437#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_14050_n5437#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_14050_n6949#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_13931_n6949#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M10/a_n452_n792#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_13931_n5437#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_13546_n5437#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_13546_n6949#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_13427_n6949#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M10/a_n956_n792#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_13427_n5437#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_13042_n5437#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_13042_n6949#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/m1_10136_n10378#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M9/a_556_n792#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M9/a_52_n792#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M9/a_n452_n792#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M9/a_n956_n792#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M2/a_452_n700#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M2/a_n556_n700#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M5/a_956_n400#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M5/a_n52_n400#
+= amp_stg_1_0/m1_14939_n6949# amp_stg_1_0/M5/a_n1044_n400#
+C amp_bias_0/vbias_20 17.4
+R amp_bias_0/vbias_2 558
+= amp_bias_0/vbias_2 m2_5930_n11390#
+= amp_bias_0/vbias_2 amp_bias_0/M5/a_140_n100#
+= amp_bias_0/vbias_2 amp_bias_0/M8/a_n140_n892#
+= amp_bias_0/vbias_2 amp_bias_0/M8/a_140_n800#
+= amp_bias_0/vbias_2 amp_bias_0/M7/a_n900_n192#
+= amp_bias_0/vbias_2 amp_stg_1_0/vbias_2
+= amp_bias_0/vbias_2 amp_stg_1_0/M4/a_556_n492#
+= amp_bias_0/vbias_2 amp_stg_1_0/M4/a_52_n492#
+= amp_bias_0/vbias_2 amp_stg_1_0/M4/a_n452_n492#
+= amp_bias_0/vbias_2 amp_stg_1_0/M4/a_n956_n492#
+= amp_bias_0/vbias_2 amp_stg_1_0/M5/a_556_n492#
+= amp_bias_0/vbias_2 amp_stg_1_0/M5/a_52_n492#
+= amp_bias_0/vbias_2 amp_stg_1_0/M5/a_n452_n492#
+= amp_bias_0/vbias_2 amp_stg_1_0/M5/a_n956_n492#
+C amp_stg_1_0/m1_10122_n12978#0 5.7
+R amp_stg_1_0/m1_10122_n12978# 1266
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/nfet_03v3_SSV5GB_3/a_332_n800#
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/nfet_03v3_SSV5GB_3/a_n420_n800#
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/nfet_03v3_SSV5GB_2/a_332_n800#
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/nfet_03v3_SSV5GB_2/a_n420_n800#
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/nfet_03v3_SSV5GB_1/a_332_n800#
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/nfet_03v3_SSV5GB_1/a_n420_n800#
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/nfet_03v3_SSV5GB_0/a_332_n800#
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/nfet_03v3_SSV5GB_0/a_n420_n800#
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/M3/a_332_n800#
+= amp_stg_1_0/m1_10122_n12978# amp_stg_1_0/M3/a_n436_n800#
+R vout 411
+= vout amp_stg_1_0/vout
+= vout amp_stg_1_0/M8/a_452_n700#
+= vout amp_stg_1_0/M8/a_n556_n700#
+= vout amp_stg_1_0/M4/a_956_n400#
+= vout amp_stg_1_0/M4/a_n52_n400#
+= vout amp_stg_1_0/M4/a_n1044_n400#
+R amp_stg_1_0/m1_10136_n7958# 582
+= amp_stg_1_0/m1_10136_n7958# amp_stg_1_0/M9/a_452_n700#
+= amp_stg_1_0/m1_10136_n7958# amp_stg_1_0/M9/a_n556_n700#
+= amp_stg_1_0/m1_10136_n7958# amp_stg_1_0/M2/a_956_n700#
+= amp_stg_1_0/m1_10136_n7958# amp_stg_1_0/M2/a_n52_n700#
+= amp_stg_1_0/m1_10136_n7958# amp_stg_1_0/M2/a_n1044_n700#
+C amp_bias_0/vbias_10 5.3
+R amp_bias_0/vbias_1 568
+= amp_bias_0/vbias_1 m2_5930_n10780#
+= amp_bias_0/vbias_1 amp_bias_0/M5/a_n140_n192#
+= amp_bias_0/vbias_1 amp_bias_0/M4/a_n140_n192#
+= amp_bias_0/vbias_1 amp_bias_0/M4/a_140_n100#
+= amp_bias_0/vbias_1 amp_bias_0/M3/a_140_n800#
+= amp_bias_0/vbias_1 amp_stg_1_0/vbias_1
+= amp_bias_0/vbias_1 amp_stg_1_0/M8/a_556_n792#
+= amp_bias_0/vbias_1 amp_stg_1_0/M8/a_52_n792#
+= amp_bias_0/vbias_1 amp_stg_1_0/M8/a_n452_n792#
+= amp_bias_0/vbias_1 amp_stg_1_0/M8/a_n956_n792#
+= amp_bias_0/vbias_1 amp_stg_1_0/M2/a_556_n792#
+= amp_bias_0/vbias_1 amp_stg_1_0/M2/a_52_n792#
+= amp_bias_0/vbias_1 amp_stg_1_0/M2/a_n452_n792#
+= amp_bias_0/vbias_1 amp_stg_1_0/M2/a_n956_n792#
+R amp_bias_0/m1_3638_n12670# 148
+= amp_bias_0/m1_3638_n12670# amp_bias_0/M8/a_n228_n800#
+= amp_bias_0/m1_3638_n12670# amp_bias_0/M7/a_n988_n100#
+C vbias_in0 13.9
+R vbias_in 788
+= vbias_in amp_stg_1_0/vbias_tail
+= vbias_in amp_stg_1_0/M3/a_436_n892#
+= vbias_in amp_stg_1_0/M3/a_52_n892#
+= vbias_in amp_stg_1_0/M3/a_n332_n892#
+= vbias_in amp_stg_1_0/M3/a_n716_n892#
+= vbias_in m2_304_n14140#
+= vbias_in amp_bias_0/vbias_in
+= vbias_in amp_bias_0/M1/a_332_n800#
+= vbias_in amp_bias_0/M1/a_n436_n800#
+= vbias_in amp_bias_0/M1/a_436_n892#
+= vbias_in amp_bias_0/M1/a_52_n892#
+= vbias_in amp_bias_0/M1/a_n332_n892#
+= vbias_in amp_bias_0/M1/a_n716_n892#
+= vbias_in amp_bias_0/M3/a_n140_n892#

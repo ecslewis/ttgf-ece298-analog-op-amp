@@ -1,0 +1,115 @@
+
+Circuit 1 cell nfet_03v3 and Circuit 2 cell nfet_03v3 are black boxes.
+Warning: Equate pins:  cell nfet_03v3 is a placeholder, treated as a black box.
+Warning: Equate pins:  cell nfet_03v3 is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: nfet_03v3                       |Circuit 2: nfet_03v3                       
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes nfet_03v3 and nfet_03v3 are equivalent.
+
+Circuit 1 cell pfet_03v3 and Circuit 2 cell pfet_03v3 are black boxes.
+Warning: Equate pins:  cell pfet_03v3 is a placeholder, treated as a black box.
+Warning: Equate pins:  cell pfet_03v3 is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: pfet_03v3                       |Circuit 2: pfet_03v3                       
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes pfet_03v3 and pfet_03v3 are equivalent.
+Flattening unmatched subcell nfet_03v3_8EAYTP in circuit amp_bias (0)(1 instance)
+Flattening unmatched subcell nfet_03v3_9XYV5A in circuit amp_bias (0)(2 instances)
+Flattening unmatched subcell pfet_03v3_TY6H95 in circuit amp_bias (0)(2 instances)
+Flattening unmatched subcell nfet_03v3_QX7UNH in circuit amp_bias (0)(1 instance)
+
+Class amp_bias (0):  Merged 3 parallel devices.
+Subcircuit summary:
+Circuit 1: amp_bias                        |Circuit 2: amp_bias                        
+-------------------------------------------|-------------------------------------------
+nfet_03v3 (7->4)                           |nfet_03v3 (4)                              
+pfet_03v3 (2)                              |pfet_03v3 (2)                              
+Number of devices: 6                       |Number of devices: 6                       
+Number of nets: 6                          |Number of nets: 6                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: amp_bias                        |Circuit 2: amp_bias                        
+-------------------------------------------|-------------------------------------------
+vbias_1                                    |vbias_1                                    
+VDD                                        |VDD                                        
+vbias_2                                    |vbias_2                                    
+VSS                                        |VSS                                        
+vbias_in                                   |vbias_in                                   
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes amp_bias and amp_bias are equivalent.
+Flattening unmatched subcell pfet_03v3_W5SFVU in circuit amp_stg_1 (0)(4 instances)
+Flattening unmatched subcell nfet_03v3_D3XTXL in circuit amp_stg_1 (0)(2 instances)
+Flattening unmatched subcell nfet_03v3_8EAYTP in circuit amp_stg_1 (0)(1 instance)
+Flattening unmatched subcell nfet_03v3_SSV5GB in circuit amp_stg_1 (0)(6 instances)
+
+Class amp_stg_1 (0):  Merged 30 parallel devices.
+Subcircuit summary:
+Circuit 1: amp_stg_1                       |Circuit 2: amp_stg_1                       
+-------------------------------------------|-------------------------------------------
+pfet_03v3 (16->4)                          |pfet_03v3 (4)                              
+nfet_03v3 (24->6)                          |nfet_03v3 (7->5) **Mismatch**              
+Number of devices: 10 **Mismatch**         |Number of devices: 9 **Mismatch**          
+Number of nets: 14                         |Number of nets: 14                         
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: amp_stg_1                       |Circuit 2: amp_stg_1                       
+
+---------------------------------------------------------------------------------------
+Net: VSS                                   |Net: VSS                                   
+  nfet_03v3/4 = 6                          |  nfet_03v3/4 = 5                          
+  nfet_03v3/(1|3) = 3                      |  nfet_03v3/(1|3) = 1                      
+  nfet_03v3/2 = 1                          |                                           
+---------------------------------------------------------------------------------------
+DEVICE mismatches: Class fragments follow (with node fanout counts):
+Circuit 1: amp_stg_1                       |Circuit 2: amp_stg_1                       
+
+---------------------------------------------------------------------------------------
+Instance: nfet_03v3_SSV5GB_5/nfet_03v3:0   |(no matching instance)                     
+  (1,3) = (10,10)                          |                                           
+  2 = 10                                   |                                           
+  4 = 10                                   |                                           
+                                           |                                           
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Port matching may fail to disambiguate symmetries.
+  Flattening non-matched subcircuits amp_stg_1 amp_stg_1
+
+Cell amp_single_stage (1) disconnected node: VDD
+Cell amp_single_stage (1) disconnected node: VSS
+Cell amp_single_stage (1) disconnected node: vbias_in
+Cell amp_single_stage (1) disconnected node: vin_p
+Cell amp_single_stage (1) disconnected node: vin_n
+Cell amp_single_stage (1) disconnected node: vout
+
+Subcircuit pins:
+Circuit 1: amp_single_stage                |Circuit 2: amp_single_stage                
+-------------------------------------------|-------------------------------------------
+VDD                                        |VDD                                        
+VSS                                        |VSS                                        
+vbias_in                                   |vbias_in                                   
+vin_p                                      |vin_p                                      
+vin_n                                      |vin_n                                      
+vout                                       |vout                                       
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes amp_single_stage and amp_single_stage are equivalent.
+
+Final result: Verify:  cell /tmp/amp_single_stage_sch_lvs.spice has no elements and/or nodes.  Not checked.
